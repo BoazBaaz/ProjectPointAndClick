@@ -24,14 +24,14 @@ namespace GameEngine
             core.manager.DrawRoomStatus();
         }
 
-        public void OnGearClick()
+        public void GoToSettings()
         {
             if (core.manager.SettingsStatus == false)
             {
                 if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
                 {
-                    core.m_StartGameButton.SetActive(false);
-                    core.m_StopGameButton.SetActive(false);
+                    core.startGameButton.SetActive(false);
+                    core.exitGameButton.SetActive(false);
                 }
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
@@ -43,8 +43,8 @@ namespace GameEngine
                 core.manager.SettingsSwitchOnOff();
                 if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
                 {
-                    core.m_StartGameButton.SetActive(true);
-                    core.m_StopGameButton.SetActive(true);
+                    core.startGameButton.SetActive(true);
+                    core.exitGameButton.SetActive(true);
                 }
             }
         }

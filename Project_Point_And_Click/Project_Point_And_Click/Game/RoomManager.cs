@@ -109,28 +109,7 @@
             {
                 case RoomStatus.MainMenu:
                     GAME_ENGINE.DrawBitmap(core.m_StartScreen, 0, 0);
-
-                    core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
-
-                    if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
-                    {
-                        if (core.flameTik == 0)
-                        {
-                            GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                        }
-                        else if (core.flameTik == 1)
-                        {
-                            GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                        }
-                        else if (core.flameTik == 2)
-                        {
-                            GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                        }
-
-                        core.flameTik++;
-                    }
-                    if (core.flameTik >= 2)
-                        core.flameTik = 0;
+                    core.main.CreateFlameAnimation();
                     break;
                 case RoomStatus.Room1:
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);

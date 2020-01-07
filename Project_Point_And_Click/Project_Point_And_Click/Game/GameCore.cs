@@ -39,18 +39,15 @@ namespace GameEngine
         public Bitmap m_Room3Bitmap = null;
         public Bitmap m_Room4Bitmap = null;
         public Bitmap m_StartScreen = null;
-        public Bitmap m_Start_Stop_Button = null;
+        public Bitmap m_Start_Exit_Button = null;
         public Bitmap m_TestBread = null;
         public Bitmap m_TestMatches = null;
 
         //Button
-        public Button m_StartGameButton = null;
-        public Button m_StopGameButton = null;
+        public Button startGameButton = null;
+        public Button exitGameButton = null;
+        public Button settingsButton = null;
         public Button m_SettingsButton = null;
-        public Button m_ToRoom1 = null;
-        public Button m_ToRoom2 = null;
-        public Button m_ToRoom3 = null;
-        public Button m_ToRoom4 = null;
 
         public Vector2 m_MousePosition = new Vector2();
 
@@ -80,16 +77,21 @@ namespace GameEngine
             m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
             m_Room4Bitmap = new Bitmap("rough_sketch_garden.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_Start_Stop_Button = new Bitmap("start_stop_button.png");
+            m_Start_Exit_Button = new Bitmap("start_stop_button.png");
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
             //Buttons
-            m_StartGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
-            m_StartGameButton.SetBitmap(m_Start_Stop_Button);
-            m_StopGameButton = new Button(main.StopGame, " ", 345, 525, 285, 80);
-            m_StopGameButton.SetBitmap(m_Start_Stop_Button);
-            m_SettingsButton = new Button(settings.OnGearClick, " ", 10, 10, 60, 60);
+            startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
+            startGameButton.SetBitmap(m_Start_Exit_Button);
+
+            exitGameButton = new Button(main.ExitGame, " ", 345, 525, 285, 85);
+            exitGameButton.SetBitmap(m_Start_Exit_Button);
+
+            settingsButton = new Button(settings.GoToSettings, " ", 705, 525, 285, 85);
+            settingsButton.SetBitmap(m_Start_Exit_Button);
+
+            m_SettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
             m_SettingsButton.SetBitmap(m_GearInActive);
         }
 
@@ -105,7 +107,7 @@ namespace GameEngine
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
             m_StartScreen.Dispose();
-            m_Start_Stop_Button.Dispose();
+            m_Start_Exit_Button.Dispose();
             m_TestBread.Dispose();
             m_StartScreen.Dispose();
         }
