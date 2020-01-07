@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GameEngine
+{
+    public class Items
+    {
+        public enum itemNames : int
+        {
+            Bread = 0,
+            Matches,
+            Candle,
+            Puzzel,
+            Rabbit,
+            Cage
+        }
+        public enum itemKinds : int
+        {
+            questItem = 0,
+            material
+        }
+
+        public itemNames name;
+        public itemKinds kind;
+        public Bitmap bitmap;
+        public bool isClicked;
+
+        public Items(itemNames itemName, itemKinds itemKind, Bitmap itemBitmap)
+        {
+            name = itemName;
+            kind = itemKind;
+            bitmap = itemBitmap;
+        }
+    }
+}
