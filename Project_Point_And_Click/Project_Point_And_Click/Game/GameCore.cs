@@ -26,7 +26,13 @@ namespace GameEngine
         //Deltatime
         public float m_FlameFPS = 1f;
         public float m_FlameControlTimer = 0f;
-        public int flameTik = 0;
+        public enum flameState : int
+        {
+            flame1 = 0,
+            flame2,
+            flame3
+        }
+        public flameState ActiveFlame;
 
         //Bitmap
         public Bitmap m_FireFrame1 = null;

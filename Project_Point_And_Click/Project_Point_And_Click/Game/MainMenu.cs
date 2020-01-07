@@ -44,25 +44,33 @@ namespace GameEngine
 
             if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
             {
-                switch (core.flameTik)
+                if (core.ActiveFlame == GameCore.flameState.flame1)
                 {
-                    case 0:
                         GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                        break;
-                    case 1:
-                        GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                        break;
-                    case 2:
-                        GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                        break;
-                    default:
-                        break;
+                }
+                else if (core.ActiveFlame == GameCore.flameState.flame2)
+                {
+                    GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
+                }
+                else if (core.ActiveFlame == GameCore.flameState.flame3)
+                {
+                    GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
                 }
 
-                if (core.flameTik >= 2)
-                    core.flameTik = 0;
-                else
-                    core.flameTik++;
+                if (core.ActiveFlame == GameCore.flameState.flame1)
+                {
+                    core.ActiveFlame = GameCore.flameState.flame2;
+                }
+                else if (core.ActiveFlame == GameCore.flameState.flame2)
+                {
+                    core.ActiveFlame = GameCore.flameState.flame2;
+                }
+                else if (core.ActiveFlame == GameCore.flameState.flame3)
+                {
+                    core.ActiveFlame = GameCore.flameState.flame1;
+                }
+
+                core.m_FlameControlTimer = 0;
             }
         }
     }
