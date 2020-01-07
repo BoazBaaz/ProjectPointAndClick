@@ -126,6 +126,7 @@ namespace GameEngine
         {
             manager.MainPainter();
             manager.DrawRoomStatus();
+            manager.DrawBackground();
 
             GAME_ENGINE.DrawBitmap(m_GearActive, 10, 10);
         }

@@ -64,52 +64,45 @@
             switch (ActiveScene)
             {
                 case RoomStatus.MainMenu:
-                    DrawBitmap();
                     core.main.Painter();
                     break;
                 case RoomStatus.Room1:
-                    DrawBitmap();
                     core.room1.Painter();
                     core.invmenager.Painter();
                     break;
                 case RoomStatus.Room2:
-                    DrawBitmap();
+                    DrawBackground();
                     core.room2.Painter();
                     core.invmenager.Painter();
                     break;
                 case RoomStatus.Room3:
-                    DrawBitmap();
                     core.room3.Painter();
                     core.invmenager.Painter();
                     break;
                 case RoomStatus.Room4:
-                    DrawBitmap();
                     core.room4.Painter();
                     core.invmenager.Painter();
                     break;
                 case RoomStatus.Endscreen:
-                    DrawBitmap();
                     core.end.Painter();
                     break;
                 case RoomStatus.Dialog:
-                    DrawBitmap();
                     core.dialog.Painter();
                     break;
                 case RoomStatus.Settings:
-                    DrawBitmap();
                     core.settings.Painter();
                     break;
                 default:
                     break;
             }
         }
-        public void DrawBitmap()
+        public void DrawBackground()
         {
             switch (ActiveScene)
             {
                 case RoomStatus.MainMenu:
                     GAME_ENGINE.DrawBitmap(core.m_StartScreen, 0, 0);
-                    core.main.CreateFlameAnimation();
+                    core.main.FlameAnimation();
                     break;
                 case RoomStatus.Room1:
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);

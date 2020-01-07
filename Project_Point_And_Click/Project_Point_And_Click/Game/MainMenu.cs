@@ -23,7 +23,7 @@ namespace GameEngine
 
         public void Painter()
         {
-            
+
         }
 
         public void StartGame()
@@ -38,23 +38,25 @@ namespace GameEngine
             GAME_ENGINE.Quit();
         }
 
-        public void CreateFlameAnimation()
+        public void FlameAnimation()
         {
             core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
 
             if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
             {
-                if (core.flameTik == 0)
+                switch (core.flameTik)
                 {
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                }
-                else if (core.flameTik == 1)
-                {
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                }
-                else if (core.flameTik == 2)
-                {
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
+                    case 0:
+                        GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
+                        break;
+                    case 1:
+                        GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
+                        break;
+                    case 2:
+                        GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
+                        break;
+                    default:
+                        break;
                 }
 
                 if (core.flameTik >= 2)
