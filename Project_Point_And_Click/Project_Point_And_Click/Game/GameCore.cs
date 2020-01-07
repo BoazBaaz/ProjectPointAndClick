@@ -24,7 +24,7 @@ namespace GameEngine
         public SettingsMenu settings;
 
         //Deltatime
-        public float m_FlameFPS = 60f;
+        public float m_FlameFPS = 1f;
         public float m_FlameControlTimer = 0f;
 
         //Bitmap
