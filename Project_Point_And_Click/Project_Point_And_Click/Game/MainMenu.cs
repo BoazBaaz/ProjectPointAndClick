@@ -40,38 +40,40 @@ namespace GameEngine
 
         public void FlameAnimation()
         {
-            core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
+            //core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
 
-            if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
+            //if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
+            //{
+            switch (core.ActiveFlame)
             {
-                if (core.ActiveFlame == GameCore.flameState.flame1)
-                {
-                        GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                }
-                else if (core.ActiveFlame == GameCore.flameState.flame2)
-                {
+                case GameCore.flameState.flame1:
+                    GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
+                    break;
+                case GameCore.flameState.flame2:
                     GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                }
-                else if (core.ActiveFlame == GameCore.flameState.flame3)
-                {
+                    break;
+                case GameCore.flameState.flame3:
                     GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                }
-
-                if (core.ActiveFlame == GameCore.flameState.flame1)
-                {
-                    core.ActiveFlame = GameCore.flameState.flame2;
-                }
-                else if (core.ActiveFlame == GameCore.flameState.flame2)
-                {
-                    core.ActiveFlame = GameCore.flameState.flame2;
-                }
-                else if (core.ActiveFlame == GameCore.flameState.flame3)
-                {
-                    core.ActiveFlame = GameCore.flameState.flame1;
-                }
-
-                core.m_FlameControlTimer = 0;
+                    break;
+                default:
+                    break;
             }
+
+            if (core.ActiveFlame == GameCore.flameState.flame1)
+            {
+                core.ActiveFlame = GameCore.flameState.flame2;
+            }
+            else if (core.ActiveFlame == GameCore.flameState.flame2)
+            {
+                core.ActiveFlame = GameCore.flameState.flame2;
+            }
+            else if (core.ActiveFlame == GameCore.flameState.flame3)
+            {
+                core.ActiveFlame = GameCore.flameState.flame1;
+            }
+
+            //    core.m_FlameControlTimer = 0;
+            //}
         }
     }
 
