@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameEngine
+﻿namespace GameEngine
 {
     public class RoomManager : GameObject
     {
@@ -120,30 +114,23 @@ namespace GameEngine
 
                     if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
                     {
-                        int timer = 0;
-
-                        switch (timer)
+                        if (core.flameTik == 0)
                         {
-                            case 0:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                                break;
-                            case 1:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                                break;
-                            case 2:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                                break;
-                            default:
-                                break;
+                            GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
+                        }
+                        else if (core.flameTik == 1)
+                        {
+                            GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
+                        }
+                        else if (core.flameTik == 2)
+                        {
+                            GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
                         }
 
-                        if (timer == 2)
-                        { 
-                            timer = 0;
-                        }
-
-                        timer++;
+                        core.flameTik++;
                     }
+                    if (core.flameTik >= 2)
+                        core.flameTik = 0;
                     break;
                 case RoomStatus.Room1:
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);
@@ -158,13 +145,13 @@ namespace GameEngine
                     GAME_ENGINE.DrawBitmap(core.m_Room4Bitmap, 0, 0);
                     break;
                 case RoomStatus.Dialog:
-                    
+
                     break;
                 case RoomStatus.Endscreen:
-                    
+
                     break;
                 case RoomStatus.Settings:
-                    
+
                     break;
                 default:
                     break;

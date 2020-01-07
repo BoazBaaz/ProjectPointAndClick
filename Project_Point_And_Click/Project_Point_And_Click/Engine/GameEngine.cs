@@ -1888,7 +1888,7 @@ namespace GameEngine
         {
             float yOffset = 0;
             //if (m_IsHovering) yOffset += m_Rectangle.Height;
-            if (m_IsClicked)  yOffset += m_Rectangle.Height;
+            //if (m_IsClicked)  yOffset += m_Rectangle.Height;
 
             GAME_ENGINE.DrawBitmap(m_Bitmap, m_Rectangle.X, m_Rectangle.Y, 0, yOffset, m_Rectangle.Width, m_Rectangle.Height);
         }

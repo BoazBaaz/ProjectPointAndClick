@@ -79,6 +79,7 @@
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\Main.cs" />
     <Compile Include="Game\Dialog.cs" />
+    <Compile Include="Game\Inventory and Items\Inventory.cs" />
     <Compile Include="Game\Inventory and Items\InventoryManager.cs" />
     <Compile Include="Game\Inventory and Items\Items.cs" />
     <Compile Include="Game\RoomManager.cs" />
@@ -89,7 +90,6 @@
     <Compile Include="Game\Rooms\Room4.cs" />
     <Compile Include="Game\Rooms\Room3.cs" />
     <Compile Include="Game\SettingsMenu.cs" />
-    <Compile Include="Game\Inventory and Items\Inventory.cs" />
     <Compile Include="Game\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

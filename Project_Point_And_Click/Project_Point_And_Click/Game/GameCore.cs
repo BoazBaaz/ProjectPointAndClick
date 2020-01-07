@@ -26,6 +26,7 @@ namespace GameEngine
         //Deltatime
         public float m_FlameFPS = 1f;
         public float m_FlameControlTimer = 0f;
+        public int flameTik = 0;
 
         //Bitmap
         public Bitmap m_FireFrame1 = null;
@@ -38,7 +39,7 @@ namespace GameEngine
         public Bitmap m_Room3Bitmap = null;
         public Bitmap m_Room4Bitmap = null;
         public Bitmap m_StartScreen = null;
-        public Bitmap m_StartStopButtonSprite = null;
+        public Bitmap m_Start_Stop_Button = null;
         public Bitmap m_TestBread = null;
         public Bitmap m_TestMatches = null;
 
@@ -50,14 +51,6 @@ namespace GameEngine
         public Button m_ToRoom2 = null;
         public Button m_ToRoom3 = null;
         public Button m_ToRoom4 = null;
-
-        //Items
-        public bool m_PuzzelPieceClicked = false;
-        public bool m_MatchesClicked = false;
-        public bool m_RabbitClicked = false;
-        public bool m_CandleClicked = false;
-        public bool m_CageClicked = false;
-        public bool m_BreadClicked = false;
 
         public Vector2 m_MousePosition = new Vector2();
 
@@ -87,15 +80,15 @@ namespace GameEngine
             m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
             m_Room4Bitmap = new Bitmap("rough_sketch_garden.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_StartStopButtonSprite = new Bitmap("start_stop_button.png");
+            m_Start_Stop_Button = new Bitmap("start_stop_button.png");
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
             //Buttons
-            m_StartGameButton = new Button(main.StartGame, " StartGame", 415, 310, 200, 100);
-            m_StartGameButton.SetBitmap(m_StartStopButtonSprite);
-            m_StopGameButton = new Button(main.StopGame, "Quit Game", 665, 310, 200, 100);
-            m_StopGameButton.SetBitmap(m_StartStopButtonSprite);
+            m_StartGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
+            m_StartGameButton.SetBitmap(m_Start_Stop_Button);
+            m_StopGameButton = new Button(main.StopGame, " ", 345, 525, 285, 80);
+            m_StopGameButton.SetBitmap(m_Start_Stop_Button);
             m_SettingsButton = new Button(settings.OnGearClick, " ", 10, 10, 60, 60);
             m_SettingsButton.SetBitmap(m_GearInActive);
         }
@@ -111,7 +104,8 @@ namespace GameEngine
             m_Room2Bitmap.Dispose();
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
-            m_StartStopButtonSprite.Dispose();
+            m_StartScreen.Dispose();
+            m_Start_Stop_Button.Dispose();
             m_TestBread.Dispose();
             m_StartScreen.Dispose();
         }
@@ -160,52 +154,6 @@ namespace GameEngine
         }
         #endregion
         #region ItemButton
-        public void CreateButton(Items.itemNames itemName, Items.itemKinds itemKind, Bitmap bitmap, int x, int y, int width, int height)
-        {
-            if (itemName == Items.itemNames.Bread)
-            {
-                if (m_BreadClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-            if (itemName == Items.itemNames.Cage)
-            {
-                if (m_CageClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-            if (itemName == Items.itemNames.Candle)
-            {
-                if (m_CandleClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-            if (itemName == Items.itemNames.Matches)
-            {
-                if (m_MatchesClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-            if (itemName == Items.itemNames.Puzzel)
-            {
-                if (m_PuzzelPieceClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-            if (itemName == Items.itemNames.Rabbit)
-            {
-                if (m_RabbitClicked == false)
-                {
-                    ItemButton(itemName, itemKind, bitmap, x, y, width, height);
-                }
-            }
-        }
-
         public void ItemButton(Items.itemNames itemName, Items.itemKinds itemKind, Bitmap bitmap, int x, int y, int width, int height)
         {
             if (m_MousePosition.X > x && m_MousePosition.X < x + width)
@@ -215,31 +163,6 @@ namespace GameEngine
                     if (GAME_ENGINE.GetMouseButtonDown(0))
                     {
                         invmenager.AddItemToInventory(new Items(itemName, itemKind, bitmap));
-
-                        if (itemName == Items.itemNames.Bread)
-                        {
-                            m_BreadClicked = true;
-                        }
-                        if (itemName == Items.itemNames.Cage)
-                        {
-                            m_CageClicked = true;
-                        }
-                        if (itemName == Items.itemNames.Candle)
-                        {
-                            m_CandleClicked = true;
-                        }
-                        if (itemName == Items.itemNames.Matches)
-                        {
-                            m_MatchesClicked = true;
-                        }
-                        if (itemName == Items.itemNames.Puzzel)
-                        {
-                            m_PuzzelPieceClicked = true;
-                        }
-                        if (itemName == Items.itemNames.Rabbit)
-                        {
-                            m_RabbitClicked = true;
-                        }
                     }
                 }
             }
