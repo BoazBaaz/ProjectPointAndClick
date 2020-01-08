@@ -21,7 +21,7 @@ namespace GameEngine
 
         public void Painter()
         {
-            
+
         }
 
         public void GoToSettings()

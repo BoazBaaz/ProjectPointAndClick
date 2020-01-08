@@ -16,6 +16,18 @@ namespace GameEngine
         }
 
 
+        //FlameAnimation
+        private float m_FlameFPS = 5f;
+        private float m_FlameControlTimer = 0f;
+
+        private enum flameState : int
+        {
+            flame1 = 0,
+            flame2,
+            flame3
+        }
+        private flameState ActiveFlame;
+
         public void Updater()
         {
 
@@ -23,7 +35,7 @@ namespace GameEngine
 
         public void Painter()
         {
-
+            FlameAnimation();
         }
 
         public void StartGame()
@@ -41,34 +53,34 @@ namespace GameEngine
 
         public void FlameAnimation()
         {
-            core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
+            m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
 
-            if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
+            if (m_FlameControlTimer > (1f / m_FlameFPS))
             {
-                if (core.ActiveFlame == GameCore.flameState.flame1)
+                if (ActiveFlame == flameState.flame1)
                 {
-                    core.ActiveFlame = GameCore.flameState.flame2;
+                    ActiveFlame = flameState.flame2;
                 }
-                else if (core.ActiveFlame == GameCore.flameState.flame2)
+                else if (ActiveFlame == flameState.flame2)
                 {
-                    core.ActiveFlame = GameCore.flameState.flame3;
+                    ActiveFlame = flameState.flame3;
                 }
-                else if (core.ActiveFlame == GameCore.flameState.flame3)
+                else if (ActiveFlame == flameState.flame3)
                 {
-                    core.ActiveFlame = GameCore.flameState.flame1;
+                    ActiveFlame = flameState.flame1;
                 }
-                core.m_FlameControlTimer = 0;
+                m_FlameControlTimer = 0;
             }
 
-            switch (core.ActiveFlame)
+            switch (ActiveFlame)
             {
-                case GameCore.flameState.flame1:
+                case flameState.flame1:
                     GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
                     break;
-                case GameCore.flameState.flame2:
+                case flameState.flame2:
                     GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
                     break;
-                case GameCore.flameState.flame3:
+                case flameState.flame3:
                     GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
                     break;
                 default:

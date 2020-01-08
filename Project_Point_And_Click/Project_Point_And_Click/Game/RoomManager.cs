@@ -102,7 +102,6 @@
             {
                 case RoomStatus.MainMenu:
                     GAME_ENGINE.DrawBitmap(core.m_StartScreen, 0, 0);
-                    core.main.FlameAnimation();
                     break;
                 case RoomStatus.Room1:
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);
@@ -123,7 +122,7 @@
 
                     break;
                 case RoomStatus.Settings:
-
+                    GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
                     break;
                 default:
                     break;

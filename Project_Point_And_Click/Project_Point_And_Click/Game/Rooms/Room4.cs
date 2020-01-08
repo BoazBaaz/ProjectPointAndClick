@@ -27,8 +27,6 @@ namespace GameEngine
             #region CanDeleteSoon
             core.DrawRoomButton(140, 50, 220, 230);
             #endregion
-
-            core.manager.DrawRoomStatus();
         }
 
     }
