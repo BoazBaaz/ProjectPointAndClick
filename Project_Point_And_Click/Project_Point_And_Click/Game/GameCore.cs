@@ -82,7 +82,7 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
-            m_Curser_1 = new Bitmap("curser_1.png");
+            m_Curser_1 = new Bitmap("cursertest.png");
             m_Curser_2 = new Bitmap("curser_2.png");
             m_Curser_3 = new Bitmap("curser_3.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
