@@ -12,6 +12,7 @@ namespace GameEngine
         //Huge thx to Steven from 1GD2 for helping me with teh roommanager and the inventory.
 
         //Classes
+        public Curser curser;
         public BackgroundDialog dialog;
         public EndGameScreen end;
         public InventoryManager invmenager;
@@ -35,6 +36,9 @@ namespace GameEngine
         public flameState ActiveFlame;
 
         //Bitmap
+        public Bitmap m_Curser_1 = null;
+        public Bitmap m_Curser_2 = null;
+        public Bitmap m_Curser_3 = null;
         public Bitmap m_FireFrame1 = null;
         public Bitmap m_FireFrame2 = null;
         public Bitmap m_FireFrame3 = null;
@@ -46,8 +50,12 @@ namespace GameEngine
         public Bitmap m_Room4Bitmap = null;
         public Bitmap m_StartScreen = null;
         public Bitmap m_Start_Exit_Button = null;
-        public Bitmap m_TestBread = null;
-        public Bitmap m_TestMatches = null;
+        public Bitmap m_Test_Bread = null;
+        public Bitmap m_Test_Matches = null;
+        public Bitmap m_Volume_1 = null;
+        public Bitmap m_Volume_2 = null;
+        public Bitmap m_Volume_3 = null;
+        public Bitmap m_Volume_Mute = null;
 
         //Button
         public Button startGameButton = null;
@@ -59,8 +67,9 @@ namespace GameEngine
 
         public override void GameStart()
         {
-            //Classes]
-            //Cursor.Hide();
+            //Classes
+            Cursor.Hide();
+            curser = new Curser(this);
             dialog = new BackgroundDialog(this);
             end = new EndGameScreen(this);
             invmenager = new InventoryManager();
@@ -73,6 +82,9 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
+            m_Curser_1 = new Bitmap("curser_1.png");
+            m_Curser_2 = new Bitmap("curser_2.png");
+            m_Curser_3 = new Bitmap("curser_3.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
             m_FireFrame3 = new Bitmap("fire_frame3.png");
@@ -84,8 +96,12 @@ namespace GameEngine
             m_Room4Bitmap = new Bitmap("rough_sketch_garden.png");
             m_StartScreen = new Bitmap("start_screen.png");
             m_Start_Exit_Button = new Bitmap("start_stop_button.png");
-            m_TestBread = new Bitmap("test_bread.png");
-            m_TestMatches = new Bitmap("test_matches.png");
+            m_Test_Bread = new Bitmap("test_bread.png");
+            m_Test_Matches = new Bitmap("test_matches.png");
+            m_Volume_1 = new Bitmap("volume_1.png");
+            m_Volume_2 = new Bitmap("volume_2.png");
+            m_Volume_3 = new Bitmap("volume_3.png");
+            m_Volume_Mute = new Bitmap("volume_mute.png");
 
             //Buttons
             startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
@@ -103,6 +119,9 @@ namespace GameEngine
 
         public override void GameEnd()
         {
+            m_Curser_1.Dispose();
+            m_Curser_2.Dispose();
+            m_Curser_3.Dispose();
             m_FireFrame1.Dispose();
             m_FireFrame2.Dispose();
             m_FireFrame3.Dispose();
@@ -114,8 +133,12 @@ namespace GameEngine
             m_Room4Bitmap.Dispose();
             m_StartScreen.Dispose();
             m_Start_Exit_Button.Dispose();
-            m_TestBread.Dispose();
+            m_Test_Bread.Dispose();
             m_StartScreen.Dispose();
+            m_Volume_1.Dispose();
+            m_Volume_2.Dispose();
+            m_Volume_3.Dispose();
+            m_Volume_Mute.Dispose();
         }
 
         public override void Update()
@@ -130,12 +153,13 @@ namespace GameEngine
 
         public override void Paint()
         {
-            manager.MainPainter();
-            manager.DrawRoomStatus();
             manager.DrawBackground();
+            manager.DrawRoomStatus();
+            manager.MainPainter();
 
             GAME_ENGINE.DrawBitmap(m_GearActive, 10, 10);
 
+            curser.DrawCurser();
         }
 
 

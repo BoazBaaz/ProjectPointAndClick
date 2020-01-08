@@ -30,6 +30,7 @@ namespace GameEngine
         {
             core.startGameButton.SetActive(false);
             core.exitGameButton.SetActive(false);
+            core.settingsButton.SetActive(false);
             core.manager.SetRoom(RoomManager.RoomStatus.Dialog); //Dialog
         }
 

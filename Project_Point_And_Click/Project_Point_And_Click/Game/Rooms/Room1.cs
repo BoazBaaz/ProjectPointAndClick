@@ -20,8 +20,8 @@ namespace GameEngine
             core.RoomButton(RoomManager.RoomStatus.Room2, 680, 470, 130, 75);
             core.RoomButton(RoomManager.RoomStatus.Room3, 280, 105, 80, 360);
             core.RoomButton(RoomManager.RoomStatus.Room4, 1080, 20, 180, 380);
-            core.ItemButton(Items.itemNames.Bread, Items.itemKinds.material, core.m_TestBread, 410, 290, 70, 40);
-            core.ItemButton(Items.itemNames.Matches, Items.itemKinds.material, core.m_TestMatches, 230, 380, 50, 50);
+            core.ItemButton(Items.itemNames.Bread, Items.itemKinds.material, core.m_Test_Bread, 410, 290, 70, 40);
+            core.ItemButton(Items.itemNames.Matches, Items.itemKinds.material, core.m_Test_Matches, 230, 380, 50, 50);
         }
 
         public void Painter()

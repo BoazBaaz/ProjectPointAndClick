@@ -21,7 +21,7 @@ namespace GameEngine
 
         public void Painter()
         {
-            core.manager.DrawRoomStatus();
+            
         }
 
         public void GoToSettings()
@@ -32,6 +32,7 @@ namespace GameEngine
                 {
                     core.startGameButton.SetActive(false);
                     core.exitGameButton.SetActive(false);
+                    core.settingsButton.SetActive(false);
                 }
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
@@ -45,6 +46,7 @@ namespace GameEngine
                 {
                     core.startGameButton.SetActive(true);
                     core.exitGameButton.SetActive(true);
+                    core.settingsButton.SetActive(true);
                 }
             }
         }
