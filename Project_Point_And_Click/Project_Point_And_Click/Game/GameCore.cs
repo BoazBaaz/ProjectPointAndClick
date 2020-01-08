@@ -23,8 +23,8 @@ namespace GameEngine
         public RoomManager manager;
         public SettingsMenu settings;
 
-        //Deltatime
-        public float m_FlameFPS = 1f;
+        //FlameAnimation
+        public float m_FlameFPS = 5f;
         public float m_FlameControlTimer = 0f;
         public enum flameState : int
         {
@@ -135,6 +135,7 @@ namespace GameEngine
             manager.DrawBackground();
 
             GAME_ENGINE.DrawBitmap(m_GearActive, 10, 10);
+
         }
 
 
