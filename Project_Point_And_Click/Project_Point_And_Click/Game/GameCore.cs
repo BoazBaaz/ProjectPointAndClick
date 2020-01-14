@@ -51,7 +51,7 @@ namespace GameEngine
         public Button startGameButton = null;
         public Button exitGameButton = null;
         public Button settingsButton = null;
-        public Button m_SettingsButton = null;
+        public Button m_StaticSettingsButton = null;
 
         public Vector2 m_MousePosition = new Vector2();
 
@@ -104,8 +104,8 @@ namespace GameEngine
             settingsButton = new Button(settings.GoToSettings, " ", 705, 525, 285, 85);
             settingsButton.SetBitmap(m_Start_Exit_Button);
 
-            m_SettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
-            m_SettingsButton.SetBitmap(m_GearInActive);
+            m_StaticSettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
+            m_StaticSettingsButton.SetBitmap(m_GearInActive);
         }
 
         public override void GameEnd()

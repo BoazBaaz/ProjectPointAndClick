@@ -15,12 +15,7 @@ namespace GameEngine
             core = c;
         }
 
-        private enum m_CurserState
-        {
-            FreeState = 0,
-            ClickState
-        }
-        private m_CurserState activeCurserState;
+        private bool curserClickState;
 
         private int curserPixelSize = 40;
 
@@ -28,22 +23,22 @@ namespace GameEngine
         {
             if (GAME_ENGINE.GetMouseButton(0))
             {
-                activeCurserState = m_CurserState.ClickState;
+                curserClickState = true;
             }
             else
             {
-                activeCurserState = m_CurserState.FreeState;
+                curserClickState = false;
             }
         }
 
         public void ShowCurser()
         {
-            switch (activeCurserState)
+            switch (curserClickState)
             {
-                case m_CurserState.FreeState:
+                case false:
                     GAME_ENGINE.DrawBitmap(core.m_CurserFree, core.m_MousePosition.X - (curserPixelSize / 2), core.m_MousePosition.Y - (curserPixelSize / 2));
                     break;
-                case m_CurserState.ClickState:
+                case true:
                     GAME_ENGINE.DrawBitmap(core.m_CurserClick, core.m_MousePosition.X - (curserPixelSize / 2), core.m_MousePosition.Y - (curserPixelSize / 2));
                     break;
                 default:

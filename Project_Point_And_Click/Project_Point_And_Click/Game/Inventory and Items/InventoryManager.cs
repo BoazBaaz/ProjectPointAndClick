@@ -22,17 +22,13 @@ namespace GameEngine
 
         public void Painter()
         {
-            //PaintInventory();
+            PaintInventory();
         }
 
         public void AddItemToInventory(Items item)
         {
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    m_InventoryList.Add(new Inventory(new Vector2(440 + 100 * i, 640)));
+            m_InventoryList.Add(new Inventory(new Vector2(440 + 100 * m_InventoryList.Count, 640), item));
 
-            //    m_InventoryList[i].items = item;
-            //}
         }
 
         public void PaintInventory()

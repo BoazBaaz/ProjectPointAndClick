@@ -11,9 +11,10 @@ namespace GameEngine
         public Items items;
         public Vector2 position;
 
-        public Inventory(Vector2 invPosition)
+        public Inventory(Vector2 invPosition, Items item)
         {
-               position = invPosition;
+            position = invPosition;
+            items = item;
         }
     }
 }

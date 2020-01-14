@@ -40,14 +40,14 @@ namespace GameEngine
             }
             else if (core.manager.SettingsStatus == true)
             {
-                core.manager.SaveLoadLastRoom();
-                core.manager.SettingsSwitchOnOff();
                 if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
                 {
                     core.startGameButton.SetActive(true);
                     core.exitGameButton.SetActive(true);
                     core.settingsButton.SetActive(true);
                 }
+                core.manager.SaveLoadLastRoom();
+                core.manager.SettingsSwitchOnOff();
             }
         }
     }
