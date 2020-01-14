@@ -8,16 +8,17 @@ namespace GameEngine
 {
     public class InventoryManager : GameObject
     {
-        List<Inventory> m_InventoryList = new List<Inventory>();
+        private GameCore core;
 
-        public InventoryManager()
+        public InventoryManager(GameCore c)
         {
-
+            core = c;
         }
+        List<Inventory> m_InventoryList = new List<Inventory>();
 
         public void Updater()
         {
-
+            ClickItem();
         }
 
         public void Painter()
@@ -27,7 +28,7 @@ namespace GameEngine
 
         public void AddItemToInventory(Items item)
         {
-            m_InventoryList.Add(new Inventory(new Vector2(440 + 100 * m_InventoryList.Count, 640), item));
+            m_InventoryList.Add(new Inventory(new Vector2(440 + 100 * m_InventoryList.Count, 620), item));
         }
 
         public void PaintInventory()
@@ -44,6 +45,23 @@ namespace GameEngine
                 }
             }
 
+        }
+
+        private void ClickItem()
+        {
+            foreach (Inventory item in m_InventoryList)
+            {
+                if (core.m_MousePosition.X > item.position.X && core.m_MousePosition.X < item.position.X)
+                {
+                    if (core.m_MousePosition.Y > item.position.Y && core.m_MousePosition.Y < item.position.Y)
+                    {
+                        if (GAME_ENGINE.GetMouseButtonDown(0))
+                        {
+                            Console.WriteLine("it's a " + item.ToString());
+                        }
+                    }
+                }
+            }
         }
     }
 }

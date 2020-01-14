@@ -43,7 +43,7 @@ namespace GameEngine
         public Bitmap m_SettingsMenuVolumeMute = null;
         public Bitmap m_SettingsMenuVolumePin = null;
         public Bitmap m_StartScreen = null;
-        public Bitmap m_Start_Exit_Button = null;
+        public Bitmap m_StartScreenButton = null;
         public Bitmap m_TestBread = null;
         public Bitmap m_TestMatches = null;
 
@@ -67,7 +67,7 @@ namespace GameEngine
             curser = new Curser(this);
             dialog = new BackgroundDialog(this);
             end = new EndGameScreen(this);
-            invmenager = new InventoryManager();
+            invmenager = new InventoryManager(this);
             main = new MainMenu(this);
             room1 = new Room1(this);
             room2 = new Room2(this);
@@ -95,19 +95,19 @@ namespace GameEngine
             m_SettingsMenuVolumeMute = new Bitmap("settings_menu_volume_mute.png");
             m_SettingsMenuVolumePin = new Bitmap("settings_menu_volume_pin.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_Start_Exit_Button = new Bitmap("start_stop_button.png");
+            m_StartScreenButton = new Bitmap("start_screen_play.png");
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
             //Buttons
             startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
-            startGameButton.SetBitmap(m_Start_Exit_Button);
+            startGameButton.SetBitmap(m_StartScreenButton);
 
             exitGameButton = new Button(main.ExitGame, " ", 345, 525, 285, 85);
-            exitGameButton.SetBitmap(m_Start_Exit_Button);
+            //exitGameButton.SetBitmap(m_Start_Exit_Button);
 
             settingsButton = new Button(settings.GoToSettings, " ", 705, 525, 285, 85);
-            settingsButton.SetBitmap(m_Start_Exit_Button);
+            //settingsButton.SetBitmap(m_Start_Exit_Button);
 
             m_StaticSettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
             m_StaticSettingsButton.SetBitmap(m_GearInActive);
@@ -137,7 +137,7 @@ namespace GameEngine
             m_SettingsMenuVolumeMute.Dispose();
             m_SettingsMenuVolumePin.Dispose();
             m_StartScreen.Dispose();
-            m_Start_Exit_Button.Dispose();
+            m_StartScreenButton.Dispose();
             m_TestBread.Dispose();
             m_StartScreen.Dispose();
         }
