@@ -28,7 +28,6 @@ namespace GameEngine
         public void AddItemToInventory(Items item)
         {
             m_InventoryList.Add(new Inventory(new Vector2(440 + 100 * m_InventoryList.Count, 640), item));
-
         }
 
         public void PaintInventory()

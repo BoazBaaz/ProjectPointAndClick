@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameEngine
 {
-    public class Items
+    public class Items : GameObject
     {
         public enum itemNames : int
         {

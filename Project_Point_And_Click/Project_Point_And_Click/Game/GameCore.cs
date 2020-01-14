@@ -44,8 +44,8 @@ namespace GameEngine
         public Bitmap m_SettingsMenuVolumePin = null;
         public Bitmap m_StartScreen = null;
         public Bitmap m_Start_Exit_Button = null;
-        public Bitmap m_Test_Bread = null;
-        public Bitmap m_Test_Matches = null;
+        public Bitmap m_TestBread = null;
+        public Bitmap m_TestMatches = null;
 
         //Button
         public Button startGameButton = null;
@@ -53,6 +53,11 @@ namespace GameEngine
         public Button settingsButton = null;
         public Button m_StaticSettingsButton = null;
 
+        //Items
+        public Items m_Bread;
+        public Items m_Matches;
+
+        //Mouselocation
         public Vector2 m_MousePosition = new Vector2();
 
         public override void GameStart()
@@ -91,8 +96,8 @@ namespace GameEngine
             m_SettingsMenuVolumePin = new Bitmap("settings_menu_volume_pin.png");
             m_StartScreen = new Bitmap("start_screen.png");
             m_Start_Exit_Button = new Bitmap("start_stop_button.png");
-            m_Test_Bread = new Bitmap("test_bread.png");
-            m_Test_Matches = new Bitmap("test_matches.png");
+            m_TestBread = new Bitmap("test_bread.png");
+            m_TestMatches = new Bitmap("test_matches.png");
 
             //Buttons
             startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
@@ -106,6 +111,10 @@ namespace GameEngine
 
             m_StaticSettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
             m_StaticSettingsButton.SetBitmap(m_GearInActive);
+
+            //Items
+            m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_TestBread);
+            m_Matches = new Items(Items.itemNames.Matches, Items.itemKinds.material, m_TestMatches);
         }
 
         public override void GameEnd()
@@ -129,7 +138,7 @@ namespace GameEngine
             m_SettingsMenuVolumePin.Dispose();
             m_StartScreen.Dispose();
             m_Start_Exit_Button.Dispose();
-            m_Test_Bread.Dispose();
+            m_TestBread.Dispose();
             m_StartScreen.Dispose();
         }
 
@@ -181,7 +190,7 @@ namespace GameEngine
         }
         #endregion
         #region ItemButton
-        public void ItemButton(Items.itemNames itemName, Items.itemKinds itemKind, Bitmap bitmap, int x, int y, int width, int height)
+        public void ItemButton(Items item, int x, int y, int width, int height)
         {
             if (m_MousePosition.X > x && m_MousePosition.X < x + width)
             {
@@ -189,7 +198,11 @@ namespace GameEngine
                 {
                     if (GAME_ENGINE.GetMouseButtonDown(0))
                     {
-                        invmenager.AddItemToInventory(new Items(itemName, itemKind, bitmap));
+                        if (item.isClicked == false)
+                        {
+                            invmenager.AddItemToInventory(item);
+                            item.isClicked = true;
+                        }
                     }
                 }
             }
