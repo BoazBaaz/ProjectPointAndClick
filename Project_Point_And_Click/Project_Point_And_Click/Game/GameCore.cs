@@ -99,6 +99,12 @@ namespace GameEngine
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
+            //FlameAnimation
+            main.m_FlameAnimation[0] = m_FireFrame1;
+            main.m_FlameAnimation[1] = m_FireFrame2;
+            main.m_FlameAnimation[2] = m_FireFrame3;
+
+
             //Buttons
             startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
             startGameButton.SetBitmap(m_StartScreenButton);
@@ -144,10 +150,7 @@ namespace GameEngine
 
         public override void Update()
         {
-            Vector2 tempMouseLoc = GAME_ENGINE.GetMousePosition();
-
-            m_MousePosition.X = tempMouseLoc.X;
-            m_MousePosition.Y = tempMouseLoc.Y;
+            m_MousePosition = GAME_ENGINE.GetMousePosition();
 
             curser.CurserSwitchState();
             manager.MainUpdater();

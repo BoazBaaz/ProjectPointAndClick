@@ -20,17 +20,13 @@ namespace GameEngine
         private float m_FlameFPS = 5f;
         private float m_FlameControlTimer = 0f;
 
-        private enum flameState : int
-        {
-            flame1 = 0,
-            flame2,
-            flame3
-        }
-        private flameState ActiveFlame;
+        private int flameTimer;
+
+        public Bitmap[] m_FlameAnimation = new Bitmap[3];
 
         public void Updater()
         {
-
+            FlameTimer();
         }
 
         public void Painter()
@@ -51,42 +47,24 @@ namespace GameEngine
             GAME_ENGINE.Quit();
         }
 
-        public void FlameAnimation()
+        private void FlameTimer()
         {
             m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
 
             if (m_FlameControlTimer > (1f / m_FlameFPS))
             {
-                if (ActiveFlame == flameState.flame1)
-                {
-                    ActiveFlame = flameState.flame2;
-                }
-                else if (ActiveFlame == flameState.flame2)
-                {
-                    ActiveFlame = flameState.flame3;
-                }
-                else if (ActiveFlame == flameState.flame3)
-                {
-                    ActiveFlame = flameState.flame1;
-                }
+                flameTimer++;
+
                 m_FlameControlTimer = 0;
             }
 
-            switch (ActiveFlame)
-            {
-                case flameState.flame1:
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                    break;
-                case flameState.flame2:
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                    break;
-                case flameState.flame3:
-                    GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                    break;
-                default:
-                    break;
-            }
+
+            if (flameTimer >= 3)
+                flameTimer = 0;
+        }
+        public void FlameAnimation()
+        {
+            GAME_ENGINE.DrawBitmap(m_FlameAnimation[flameTimer], 0, 0);  
         }
     }
-
 }
