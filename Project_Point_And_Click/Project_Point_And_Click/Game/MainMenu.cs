@@ -26,19 +26,38 @@ namespace GameEngine
 
         public void Updater()
         {
+            CreateButtons();
+
             FlameTimer();
         }
 
         public void Painter()
         {
+            PaintButtons();
+
             FlameAnimation();
+        }
+
+        private void CreateButtons()
+        {
+            core.FunctionButton(GameCore.m_Functions.start, 525, 380, 285, 80);
+
+            core.FunctionButton(GameCore.m_Functions.exit, 345, 525, 285, 85);
+
+            core.FunctionButton(GameCore.m_Functions.settings, 705, 525, 285, 85);
+        }
+
+        private void PaintButtons()
+        {
+            core.DrawFunctionButton(GameCore.m_Functions.start, 525, 380, 285, 80);
+
+            core.DrawFunctionButton(GameCore.m_Functions.exit, 345, 525, 285, 85);
+
+            core.DrawFunctionButton(GameCore.m_Functions.settings, 705, 525, 285, 85);
         }
 
         public void StartGame()
         {
-            core.startGameButton.SetActive(false);
-            core.exitGameButton.SetActive(false);
-            core.settingsButton.SetActive(false);
             core.manager.SetRoom(RoomManager.RoomStatus.Dialog); //Dialog
         }
 
@@ -64,7 +83,7 @@ namespace GameEngine
         }
         public void FlameAnimation()
         {
-            GAME_ENGINE.DrawBitmap(m_FlameAnimation[flameTimer], 0, 0);  
+            GAME_ENGINE.DrawBitmap(m_FlameAnimation[flameTimer], 0, 0);
         }
     }
 }

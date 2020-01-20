@@ -28,24 +28,12 @@ namespace GameEngine
         {
             if (core.manager.SettingsStatus == false)
             {
-                if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
-                {
-                    core.startGameButton.SetActive(false);
-                    core.exitGameButton.SetActive(false);
-                    core.settingsButton.SetActive(false);
-                }
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
                 core.manager.SetRoom(RoomManager.RoomStatus.Settings);
             }
             else if (core.manager.SettingsStatus == true)
             {
-                if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
-                {
-                    core.startGameButton.SetActive(true);
-                    core.exitGameButton.SetActive(true);
-                    core.settingsButton.SetActive(true);
-                }
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
             }

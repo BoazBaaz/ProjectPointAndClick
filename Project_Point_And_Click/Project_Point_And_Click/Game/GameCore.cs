@@ -43,15 +43,11 @@ namespace GameEngine
         public Bitmap m_SettingsMenuVolumeMute = null;
         public Bitmap m_SettingsMenuVolumePin = null;
         public Bitmap m_StartScreen = null;
-        public Bitmap m_StartScreenButton = null;
+        public Bitmap m_StartButton = null;
+        public Bitmap m_ExitButton = null;
+        public Bitmap m_SettingsButton = null;
         public Bitmap m_TestBread = null;
         public Bitmap m_TestMatches = null;
-
-        //Button
-        public Button startGameButton = null;
-        public Button exitGameButton = null;
-        public Button settingsButton = null;
-        public Button m_StaticSettingsButton = null;
 
         //Items
         public Items m_Bread;
@@ -95,7 +91,9 @@ namespace GameEngine
             m_SettingsMenuVolumeMute = new Bitmap("settings_menu_volume_mute.png");
             m_SettingsMenuVolumePin = new Bitmap("settings_menu_volume_pin.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_StartScreenButton = new Bitmap("start_screen_play.png");
+            m_StartButton = new Bitmap("start_screen_play.png");
+            m_ExitButton = null; //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!!
+            m_SettingsButton = null; //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!!
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
@@ -103,20 +101,6 @@ namespace GameEngine
             main.m_FlameAnimation[0] = m_FireFrame1;
             main.m_FlameAnimation[1] = m_FireFrame2;
             main.m_FlameAnimation[2] = m_FireFrame3;
-
-
-            //Buttons
-            startGameButton = new Button(main.StartGame, " ", 525, 380, 285, 80);
-            startGameButton.SetBitmap(m_StartScreenButton);
-
-            exitGameButton = new Button(main.ExitGame, " ", 345, 525, 285, 85);
-            //exitGameButton.SetBitmap(m_Start_Exit_Button);
-
-            settingsButton = new Button(settings.GoToSettings, " ", 705, 525, 285, 85);
-            //settingsButton.SetBitmap(m_Start_Exit_Button);
-
-            m_StaticSettingsButton = new Button(settings.GoToSettings, " ", 10, 10, 60, 60);
-            m_StaticSettingsButton.SetBitmap(m_GearInActive);
 
             //Items
             m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_TestBread);
@@ -143,7 +127,7 @@ namespace GameEngine
             m_SettingsMenuVolumeMute.Dispose();
             m_SettingsMenuVolumePin.Dispose();
             m_StartScreen.Dispose();
-            m_StartScreenButton.Dispose();
+            m_StartButton.Dispose();
             m_TestBread.Dispose();
             m_StartScreen.Dispose();
         }
@@ -161,8 +145,6 @@ namespace GameEngine
             manager.DrawBackground();
             manager.DrawRoomStatus();
             manager.MainPainter();
-
-            GAME_ENGINE.DrawBitmap(m_GearActive, 10, 10);
 
             curser.ShowCurser();
         }
@@ -216,6 +198,64 @@ namespace GameEngine
             GAME_ENGINE.SetColor(Color.Cyan);
             GAME_ENGINE.DrawRectangle(x, y, width, height, 2);
         }
+        #endregion
+        #region FunctionButton
+        public enum m_Functions
+        {
+            start = 0,
+            exit,
+            settings
+        }
+
+        public void FunctionButton(m_Functions functions, int x, int y, int width, int height)
+        {
+            if (m_MousePosition.X > x && m_MousePosition.X < x + width)
+            {
+                if (m_MousePosition.Y > y && m_MousePosition.Y < y + height)
+                {
+                    if (GAME_ENGINE.GetMouseButtonDown(0))
+                    {
+                        switch (functions)
+                        {
+                            case m_Functions.start:
+                                main.StartGame();
+                                break;
+                            case m_Functions.exit:
+                                main.ExitGame();
+                                break;
+                            case m_Functions.settings:
+                                settings.GoToSettings();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void DrawFunctionButton(m_Functions functions, int x, int y, int width, int height)
+        {
+            GAME_ENGINE.SetColor(Color.Magenta);
+
+            GAME_ENGINE.DrawRectangle(x, y, width, height, 2);
+
+            switch (functions)
+            {
+                case m_Functions.start:
+                    GAME_ENGINE.DrawBitmap(m_StartButton, x, y);
+                    break;
+                case m_Functions.exit:
+                    GAME_ENGINE.DrawBitmap(m_ExitButton, x, y);
+                    break;
+                case m_Functions.settings:
+                    GAME_ENGINE.DrawBitmap(m_SettingsButton, x, y);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #endregion
     }
 }
