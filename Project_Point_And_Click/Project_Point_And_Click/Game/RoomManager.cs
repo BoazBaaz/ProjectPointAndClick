@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameEngine
+﻿namespace GameEngine
 {
     public class RoomManager : GameObject
     {
@@ -17,7 +11,8 @@ namespace GameEngine
             Room4,
             Dialog,
             Endscreen,
-            Settings
+            Settings,
+            Puzzel
         };
         public RoomStatus ActiveScene;
         private int ActiveSceneSave;
@@ -39,18 +34,22 @@ namespace GameEngine
                 case RoomStatus.Room1:
                     core.room1.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room2:
                     core.room2.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room3:
                     core.room3.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room4:
                     core.room4.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Dialog:
                     core.dialog.Updater();
@@ -61,6 +60,9 @@ namespace GameEngine
                 case RoomStatus.Settings:
                     core.settings.Updater();
                     break;
+                case RoomStatus.Puzzel:
+                    core.puzzel.Updater();
+                    break;
                 default:
                     break;
             }
@@ -70,80 +72,51 @@ namespace GameEngine
             switch (ActiveScene)
             {
                 case RoomStatus.MainMenu:
-                    DrawBitmap();
                     core.main.Painter();
                     break;
                 case RoomStatus.Room1:
-                    DrawBitmap();
                     core.room1.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room2:
-                    DrawBitmap();
+                    DrawBackground();
                     core.room2.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room3:
-                    DrawBitmap();
                     core.room3.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room4:
-                    DrawBitmap();
                     core.room4.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Endscreen:
-                    DrawBitmap();
                     core.end.Painter();
                     break;
                 case RoomStatus.Dialog:
-                    DrawBitmap();
                     core.dialog.Painter();
                     break;
                 case RoomStatus.Settings:
-                    DrawBitmap();
                     core.settings.Painter();
+                    break;
+                case RoomStatus.Puzzel:
+                    core.puzzel.Painter();
                     break;
                 default:
                     break;
             }
         }
-        public void DrawBitmap()
+        public void DrawBackground()
         {
             switch (ActiveScene)
             {
                 case RoomStatus.MainMenu:
                     GAME_ENGINE.DrawBitmap(core.m_StartScreen, 0, 0);
-
-                    core.m_FlameControlTimer += GAME_ENGINE.GetDeltaTime();
-
-                    if (core.m_FlameControlTimer > (1f / core.m_FlameFPS))
-                    {
-                        int timer = 0;
-
-                        switch (timer)
-                        {
-                            case 0:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame1, 0, 0);
-                                break;
-                            case 1:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame2, 0, 0);
-                                break;
-                            case 2:
-                                GAME_ENGINE.DrawBitmap(core.m_FireFrame3, 0, 0);
-                                break;
-                            default:
-                                break;
-                        }
-
-                        if (timer == 2)
-                        { 
-                            timer = 0;
-                        }
-
-                        timer++;
-                    }
                     break;
                 case RoomStatus.Room1:
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);
@@ -158,13 +131,16 @@ namespace GameEngine
                     GAME_ENGINE.DrawBitmap(core.m_Room4Bitmap, 0, 0);
                     break;
                 case RoomStatus.Dialog:
-                    
+
                     break;
                 case RoomStatus.Endscreen:
-                    
+
                     break;
                 case RoomStatus.Settings:
-                    
+                    GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
+                    break;
+                case RoomStatus.Puzzel:
+
                     break;
                 default:
                     break;

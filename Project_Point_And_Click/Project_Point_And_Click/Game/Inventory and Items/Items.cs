@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameEngine
 {
-    public class Items
+    public class Items : GameObject
     {
         public enum itemNames : int
         {
@@ -26,7 +26,7 @@ namespace GameEngine
         public itemNames name;
         public itemKinds kind;
         public Bitmap bitmap;
-        public bool isClicked;
+        public bool isClicked = false;
 
         public Items(itemNames itemName, itemKinds itemKind, Bitmap itemBitmap)
         {

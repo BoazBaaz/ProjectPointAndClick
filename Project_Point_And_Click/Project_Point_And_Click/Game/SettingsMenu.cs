@@ -16,23 +16,18 @@ namespace GameEngine
 
         public void Updater()
         {
-
+            core.FunctionButton(GameCore.m_Functions.settings, 566, 587, 140, 115);
         }
 
         public void Painter()
         {
-            core.manager.DrawRoomStatus();
+            core.FunctionButton(GameCore.m_Functions.empty, 566, 587, 140, 115);
         }
 
-        public void OnGearClick()
+        public void GoToSettings()
         {
             if (core.manager.SettingsStatus == false)
             {
-                if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
-                {
-                    core.m_StartGameButton.SetActive(false);
-                    core.m_StopGameButton.SetActive(false);
-                }
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
                 core.manager.SetRoom(RoomManager.RoomStatus.Settings);
@@ -41,11 +36,6 @@ namespace GameEngine
             {
                 core.manager.SaveLoadLastRoom();
                 core.manager.SettingsSwitchOnOff();
-                if (core.manager.ActiveScene == RoomManager.RoomStatus.MainMenu)
-                {
-                    core.m_StartGameButton.SetActive(true);
-                    core.m_StopGameButton.SetActive(true);
-                }
             }
         }
     }
