@@ -192,8 +192,31 @@ namespace GameEngine
             }
         }
 
-        public void DrawItemButton(int x, int y, int width, int height)
+        public void DrawItemButton(Items item, int x, int y, int width, int height)
         {
+            if (!item.isClicked)
+            {
+                switch (item.name)
+                {
+                    case Items.itemNames.Bread:
+                        GAME_ENGINE.DrawBitmap(m_TestBread, x, y);
+                        break;
+                    case Items.itemNames.Matches:
+                        GAME_ENGINE.DrawBitmap(m_TestMatches, x, y);
+                        break;
+                    case Items.itemNames.Candle:
+                        break;
+                    case Items.itemNames.Puzzel:
+                        break;
+                    case Items.itemNames.Rabbit:
+                        break;
+                    case Items.itemNames.Cage:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             GAME_ENGINE.SetColor(Color.Cyan);
             GAME_ENGINE.DrawRectangle(x, y, width, height, 2);
         }

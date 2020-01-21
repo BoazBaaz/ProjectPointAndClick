@@ -83,6 +83,7 @@
     <Compile Include="Game\Inventory and Items\Inventory.cs" />
     <Compile Include="Game\Inventory and Items\InventoryManager.cs" />
     <Compile Include="Game\Inventory and Items\Items.cs" />
+    <Compile Include="Game\Puzzel.cs" />
     <Compile Include="Game\RoomManager.cs" />
     <Compile Include="Game\EndGameScreen.cs" />
     <Compile Include="Game\Rooms\Room2.cs" />

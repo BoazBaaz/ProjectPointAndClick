@@ -17,7 +17,7 @@ namespace GameEngine
 
         public void Updater()
         {
-            core.RoomButton(RoomManager.RoomStatus.Room2, 680, 470, 130, 75);
+            core.RoomButton(RoomManager.RoomStatus.Puzzel, 680, 470, 130, 75);
             core.RoomButton(RoomManager.RoomStatus.Room3, 280, 105, 80, 360);
             core.RoomButton(RoomManager.RoomStatus.Room4, 1080, 20, 180, 380);
             core.ItemButton(core.m_Bread ,410, 290, 70, 40);
@@ -32,8 +32,8 @@ namespace GameEngine
             core.DrawRoomButton(680, 470, 130, 85);
             core.DrawRoomButton(1080, 20, 180, 380);
             //Items
-            core.DrawItemButton(410, 290, 70, 40);
-            core.DrawItemButton(230, 380, 50, 50);
+            core.DrawItemButton(core.m_Bread, 410, 290, 70, 40);
+            core.DrawItemButton(core.m_Matches, 230, 380, 50, 50);
             #endregion 
         }
 

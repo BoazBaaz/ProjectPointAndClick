@@ -22,8 +22,6 @@ namespace GameEngine
 
         public void Painter()
         {
-            core.manager.DrawBackground();
-
             #region CanDeleteSoon
             core.DrawRoomButton(140, 50, 220, 230);
             #endregion
