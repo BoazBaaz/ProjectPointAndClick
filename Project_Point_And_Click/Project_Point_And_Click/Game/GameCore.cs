@@ -39,6 +39,8 @@ namespace GameEngine
         public Bitmap m_ItemKnife = null;
         public Bitmap m_ItemMatches = null;
         public Bitmap m_ItemPuzzel = null;
+        public Bitmap m_ItemRabbitAlive = null;
+        public Bitmap m_ItemRabbitDead = null;
         public Bitmap m_StartScreen = null;
         public Bitmap m_StartButton = null;
         public Bitmap m_ExitButton = null;
@@ -97,6 +99,8 @@ namespace GameEngine
             m_ItemKnife = new Bitmap("item_knife.png");
             m_ItemMatches = new Bitmap("item_matches.png");
             m_ItemPuzzel = new Bitmap("item_puzzel.png");
+            m_ItemRabbitAlive = new Bitmap("item_rabbit_alive.png");
+            m_ItemRabbitDead = new Bitmap("item_rabbit_dead.png");
             m_StartButton = new Bitmap("mainscreen_play_button.png");
             m_SettingsButton = new Bitmap("mainscreen_options_button.png");
             m_ExitButton = new Bitmap("mainscreen_exit_button.png");
@@ -131,6 +135,15 @@ namespace GameEngine
             m_FireFrame2.Dispose();
             m_FireFrame3.Dispose();
             m_Gear.Dispose();
+            m_ItemBread.Dispose();
+            m_ItemCage.Dispose();
+            m_ItemCandleLit.Dispose();
+            m_ItemCandleNotlit.Dispose();
+            m_ItemKnife.Dispose();
+            m_ItemMatches.Dispose();
+            m_ItemPuzzel.Dispose();
+            m_ItemRabbitAlive.Dispose();
+            m_ItemRabbitDead.Dispose();
             m_StartButton.Dispose();
             m_SettingsButton.Dispose();
             m_ExitButton.Dispose();
@@ -142,13 +155,6 @@ namespace GameEngine
             m_SettingsMenuVolumeMute.Dispose();
             m_SettingsMenuVolumePin.Dispose();
             m_StartScreen.Dispose();
-            m_ItemBread.Dispose();
-            m_ItemCage.Dispose();
-            m_ItemCandleLit.Dispose();
-            m_ItemCandleNotlit.Dispose();
-            m_ItemKnife.Dispose();
-            m_ItemMatches.Dispose();
-            m_ItemPuzzel.Dispose();
         }
 
         public override void Update()
