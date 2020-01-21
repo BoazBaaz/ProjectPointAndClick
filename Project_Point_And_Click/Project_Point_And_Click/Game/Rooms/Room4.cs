@@ -17,7 +17,7 @@ namespace GameEngine
 
         public void Updater()
         {
-            core.RoomButton(RoomManager.RoomStatus.Room1, 140, 50, 220, 240);
+            core.RoomButton(RoomManager.RoomStatus.Room1, 140, 60, 220, 230);
         }
 
         public void Painter()

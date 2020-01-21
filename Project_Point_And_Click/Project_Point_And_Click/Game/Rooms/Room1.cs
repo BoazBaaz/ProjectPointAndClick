@@ -15,9 +15,14 @@ namespace GameEngine
             core = c;
         }
 
+        public bool PuzzelSolved = false;
+
         public void Updater()
         {
-            core.RoomButton(RoomManager.RoomStatus.Puzzel, 680, 470, 130, 75);
+            if (!PuzzelSolved)
+                core.RoomButton(RoomManager.RoomStatus.Puzzel, 680, 470, 130, 75);
+            else
+                core.RoomButton(RoomManager.RoomStatus.Room2, 680, 470, 130, 75);
             core.RoomButton(RoomManager.RoomStatus.Room3, 280, 105, 80, 360);
             core.RoomButton(RoomManager.RoomStatus.Room4, 1080, 20, 180, 380);
             core.ItemButton(core.m_Bread ,410, 290, 70, 40);
