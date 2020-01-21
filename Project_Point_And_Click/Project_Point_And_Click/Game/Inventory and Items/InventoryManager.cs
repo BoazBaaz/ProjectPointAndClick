@@ -66,8 +66,6 @@ namespace GameEngine
                     {
                         if (GAME_ENGINE.GetMouseButtonDown(0))
                         {
-
-
                             Console.WriteLine("it's a " + item.items.name.ToString());
                         }
                     }

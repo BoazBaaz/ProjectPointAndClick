@@ -21,6 +21,7 @@ namespace GameEngine
         public Room2 room2;
         public Room3 room3;
         public Room4 room4;
+        public Puzzel puzzel;
         public RoomManager manager;
         public SettingsMenu settings;
 
@@ -68,6 +69,7 @@ namespace GameEngine
             room2 = new Room2(this);
             room3 = new Room3(this);
             room4 = new Room4(this);
+            puzzel = new Puzzel(this);
             manager = new RoomManager(this);
             settings = new SettingsMenu(this);
 

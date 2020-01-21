@@ -11,7 +11,8 @@
             Room4,
             Dialog,
             Endscreen,
-            Settings
+            Settings,
+            Puzzel
         };
         public RoomStatus ActiveScene;
         private int ActiveSceneSave;
@@ -59,6 +60,9 @@
                 case RoomStatus.Settings:
                     core.settings.Updater();
                     break;
+                case RoomStatus.Puzzel:
+                    core.puzzel.Updater();
+                    break;
                 default:
                     break;
             }
@@ -100,6 +104,9 @@
                 case RoomStatus.Settings:
                     core.settings.Painter();
                     break;
+                case RoomStatus.Puzzel:
+                    core.puzzel.Painter();
+                    break;
                 default:
                     break;
             }
@@ -131,6 +138,9 @@
                     break;
                 case RoomStatus.Settings:
                     GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
+                    break;
+                case RoomStatus.Puzzel:
+
                     break;
                 default:
                     break;
