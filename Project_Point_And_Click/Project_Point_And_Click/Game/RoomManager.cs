@@ -33,18 +33,22 @@
                 case RoomStatus.Room1:
                     core.room1.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room2:
                     core.room2.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room3:
                     core.room3.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room4:
                     core.room4.Updater();
                     core.invmenager.Updater();
+                    core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Dialog:
                     core.dialog.Updater();
@@ -69,19 +73,23 @@
                 case RoomStatus.Room1:
                     core.room1.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room2:
                     DrawBackground();
                     core.room2.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room3:
                     core.room3.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Room4:
                     core.room4.Painter();
                     core.invmenager.Painter();
+                    core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
                     break;
                 case RoomStatus.Endscreen:
                     core.end.Painter();

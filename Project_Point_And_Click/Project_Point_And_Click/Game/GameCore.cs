@@ -30,8 +30,7 @@ namespace GameEngine
         public Bitmap m_FireFrame1 = null;
         public Bitmap m_FireFrame2 = null;
         public Bitmap m_FireFrame3 = null;
-        public Bitmap m_GearActive = null;
-        public Bitmap m_GearInActive = null;
+        public Bitmap m_Gear = null;
         public Bitmap m_Room1Bitmap = null;
         public Bitmap m_Room2Bitmap = null;
         public Bitmap m_Room3Bitmap = null;
@@ -78,12 +77,14 @@ namespace GameEngine
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
             m_FireFrame3 = new Bitmap("fire_frame3.png");
-            m_GearActive = new Bitmap("gear_active.png");
-            m_GearInActive = new Bitmap("gear_inactive.png");
-            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
+            m_Gear = new Bitmap("gear.png");
+            m_StartButton = new Bitmap("mainscreen_play_button.png");
+            m_SettingsButton = new Bitmap("mainscreen_options_button.png");
+            m_ExitButton = new Bitmap("mainscreen_exit_button.png");
             m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
-            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
             m_Room4Bitmap = new Bitmap("rough_sketch_garden.png");
+            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
+            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
             m_SettingsMenuInterface = new Bitmap("settings_menu_interface.png");
             m_SettingsMenuVolume1 = new Bitmap("settings_menu_volume_1.png");
             m_SettingsMenuVolume2 = new Bitmap("settings_menu_volume_2.png");
@@ -91,9 +92,6 @@ namespace GameEngine
             m_SettingsMenuVolumeMute = new Bitmap("settings_menu_volume_mute.png");
             m_SettingsMenuVolumePin = new Bitmap("settings_menu_volume_pin.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_StartButton = new Bitmap("start_screen_play.png");
-            m_ExitButton = null; //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!!
-            m_SettingsButton = null; //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!! //NEED FIX FAST!!
             m_TestBread = new Bitmap("test_bread.png");
             m_TestMatches = new Bitmap("test_matches.png");
 
@@ -114,8 +112,7 @@ namespace GameEngine
             m_FireFrame1.Dispose();
             m_FireFrame2.Dispose();
             m_FireFrame3.Dispose();
-            m_GearActive.Dispose();
-            m_GearInActive.Dispose();
+            m_Gear.Dispose();
             m_Room1Bitmap.Dispose();
             m_Room2Bitmap.Dispose();
             m_Room3Bitmap.Dispose();
@@ -204,7 +201,9 @@ namespace GameEngine
         {
             start = 0,
             exit,
-            settings
+            settings,
+            gear,
+            empty
         }
 
         public void FunctionButton(m_Functions functions, int x, int y, int width, int height)
@@ -213,7 +212,7 @@ namespace GameEngine
             {
                 if (m_MousePosition.Y > y && m_MousePosition.Y < y + height)
                 {
-                    if (GAME_ENGINE.GetMouseButtonDown(0))
+                    if (GAME_ENGINE.GetMouseButtonUp(0))
                     {
                         switch (functions)
                         {
@@ -246,10 +245,15 @@ namespace GameEngine
                     GAME_ENGINE.DrawBitmap(m_StartButton, x, y);
                     break;
                 case m_Functions.exit:
-                    //GAME_ENGINE.DrawBitmap(m_ExitButton, x, y);
+                    GAME_ENGINE.DrawBitmap(m_ExitButton, x, y);
                     break;
                 case m_Functions.settings:
-                    //GAME_ENGINE.DrawBitmap(m_SettingsButton, x, y);
+                    GAME_ENGINE.DrawBitmap(m_SettingsButton, x, y);
+                    break;
+                case m_Functions.gear:
+                    GAME_ENGINE.DrawBitmap(m_Gear, x, y);
+                    break;
+                case m_Functions.empty:
                     break;
                 default:
                     break;

@@ -16,12 +16,12 @@ namespace GameEngine
 
         public void Updater()
         {
-
+            core.FunctionButton(GameCore.m_Functions.settings, 566, 587, 140, 115);
         }
 
         public void Painter()
         {
-
+            core.FunctionButton(GameCore.m_Functions.empty, 566, 587, 140, 115);
         }
 
         public void GoToSettings()

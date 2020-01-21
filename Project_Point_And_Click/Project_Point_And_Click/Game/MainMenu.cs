@@ -33,27 +33,27 @@ namespace GameEngine
 
         public void Painter()
         {
-            PaintButtons();
-
             FlameAnimation();
+
+            PaintButtons();
         }
 
         private void CreateButtons()
         {
-            core.FunctionButton(GameCore.m_Functions.start, 525, 380, 330, 105);
+            core.FunctionButton(GameCore.m_Functions.start, 505, 370, 330, 105);
 
-            core.FunctionButton(GameCore.m_Functions.exit, 345, 525, 330, 105);
+            core.FunctionButton(GameCore.m_Functions.exit, 325, 515, 330, 105);
 
-            core.FunctionButton(GameCore.m_Functions.settings, 705, 525, 330, 105);
+            core.FunctionButton(GameCore.m_Functions.settings, 685, 515, 330, 105);
         }
 
         private void PaintButtons()
         {
-            core.DrawFunctionButton(GameCore.m_Functions.start, 525, 380, 330, 105);
+            core.DrawFunctionButton(GameCore.m_Functions.start, 505, 370, 330, 105);
 
-            core.DrawFunctionButton(GameCore.m_Functions.exit, 345, 525, 330, 105);
+            core.DrawFunctionButton(GameCore.m_Functions.exit, 325, 515, 330, 105);
 
-            core.DrawFunctionButton(GameCore.m_Functions.settings, 705, 525, 330, 105);
+            core.DrawFunctionButton(GameCore.m_Functions.settings, 685, 515, 330, 105);
         }
 
         public void StartGame()
