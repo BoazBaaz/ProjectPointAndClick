@@ -9,7 +9,7 @@ namespace GameEngine
 {
     public class GameCore : AbstractGame
     {
-        //Huge thx to Steven from 1GD2 for helping me with teh roommanager and the inventory.
+        //Huge thx to Steven from 1GD2 for helping me with the roommanager and the inventory.
 
         //Classes
         public Curser curser;
@@ -42,15 +42,7 @@ namespace GameEngine
         public Bitmap m_StartScreen = null;
         public Bitmap m_StartButton = null;
         public Bitmap m_ExitButton = null;
-        public Bitmap m_Puzzel1 = null;
-        public Bitmap m_Puzzel2 = null;
-        public Bitmap m_Puzzel3 = null;
-        public Bitmap m_Puzzel4 = null;
-        public Bitmap m_Puzzel5 = null;
-        public Bitmap m_Puzzel6 = null;
-        public Bitmap m_Puzzel7 = null;
-        public Bitmap m_Puzzel8 = null;
-        public Bitmap m_Puzzel9 = null;
+        public Bitmap m_PuzzelGoat = null;
         public Bitmap m_Room1Bitmap = null;
         public Bitmap m_Room2Bitmap = null;
         public Bitmap m_Room3Bitmap = null;
@@ -108,15 +100,7 @@ namespace GameEngine
             m_StartButton = new Bitmap("mainscreen_play_button.png");
             m_SettingsButton = new Bitmap("mainscreen_options_button.png");
             m_ExitButton = new Bitmap("mainscreen_exit_button.png");
-            m_Puzzel1 = new Bitmap("puzzel1.png");
-            m_Puzzel2 = new Bitmap("puzzel2.png");
-            m_Puzzel3 = new Bitmap("puzzel3.png");
-            m_Puzzel4 = new Bitmap("puzzel4.png");
-            m_Puzzel5 = new Bitmap("puzzel5.png");
-            m_Puzzel6 = new Bitmap("puzzel6.png");
-            m_Puzzel7 = new Bitmap("puzzel7.png");
-            m_Puzzel8 = new Bitmap("puzzel8.png");
-            m_Puzzel9 = new Bitmap("puzzel9.png");
+            m_PuzzelGoat = new Bitmap("puzzel_goat.png");
             m_SettingsMenuInterface = new Bitmap("settings_menu_interface.png");
             m_SettingsMenuVolume1 = new Bitmap("settings_menu_volume_1.png");
             m_SettingsMenuVolume2 = new Bitmap("settings_menu_volume_2.png");
@@ -129,17 +113,6 @@ namespace GameEngine
             main.m_FlameAnimation[0] = m_FireFrame1;
             main.m_FlameAnimation[1] = m_FireFrame2;
             main.m_FlameAnimation[2] = m_FireFrame3;
-
-            //PuzzelBitmaps
-            puzzel.puzzelBitmaps[0] = m_Puzzel1;
-            puzzel.puzzelBitmaps[1] = m_Puzzel2;
-            puzzel.puzzelBitmaps[2] = m_Puzzel3;
-            puzzel.puzzelBitmaps[3] = m_Puzzel4;
-            puzzel.puzzelBitmaps[4] = m_Puzzel5;
-            puzzel.puzzelBitmaps[5] = m_Puzzel6;
-            puzzel.puzzelBitmaps[6] = m_Puzzel7;
-            puzzel.puzzelBitmaps[7] = m_Puzzel8;
-            puzzel.puzzelBitmaps[8] = m_Puzzel9;
 
             //Items
             m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_ItemBread);
@@ -161,15 +134,7 @@ namespace GameEngine
             m_StartButton.Dispose();
             m_SettingsButton.Dispose();
             m_ExitButton.Dispose();
-            m_Puzzel1.Dispose();
-            m_Puzzel2.Dispose();
-            m_Puzzel3.Dispose();
-            m_Puzzel4.Dispose();
-            m_Puzzel5.Dispose();
-            m_Puzzel6.Dispose();
-            m_Puzzel7.Dispose();
-            m_Puzzel8.Dispose();
-            m_Puzzel9.Dispose();
+            m_PuzzelGoat.Dispose();
             m_SettingsMenuInterface.Dispose();
             m_SettingsMenuVolume1.Dispose();
             m_SettingsMenuVolume2.Dispose();

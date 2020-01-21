@@ -15,10 +15,6 @@ namespace GameEngine
             core = c;
         }
 
-        public Bitmap[] puzzelBitmaps = new Bitmap[9];
-
-        int l;
-
         public void Updater()
         {
             core.RoomButton(RoomManager.RoomStatus.Room2, 1220, 0, 60, 60);
