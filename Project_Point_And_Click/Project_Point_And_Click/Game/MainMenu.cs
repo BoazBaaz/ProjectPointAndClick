@@ -40,20 +40,20 @@ namespace GameEngine
 
         private void CreateButtons()
         {
-            core.FunctionButton(GameCore.m_Functions.start, 525, 380, 285, 80);
+            core.FunctionButton(GameCore.m_Functions.start, 525, 380, 330, 105);
 
-            core.FunctionButton(GameCore.m_Functions.exit, 345, 525, 285, 85);
+            core.FunctionButton(GameCore.m_Functions.exit, 345, 525, 330, 105);
 
-            core.FunctionButton(GameCore.m_Functions.settings, 705, 525, 285, 85);
+            core.FunctionButton(GameCore.m_Functions.settings, 705, 525, 330, 105);
         }
 
         private void PaintButtons()
         {
-            core.DrawFunctionButton(GameCore.m_Functions.start, 525, 380, 285, 80);
+            core.DrawFunctionButton(GameCore.m_Functions.start, 525, 380, 330, 105);
 
-            core.DrawFunctionButton(GameCore.m_Functions.exit, 345, 525, 285, 85);
+            core.DrawFunctionButton(GameCore.m_Functions.exit, 345, 525, 330, 105);
 
-            core.DrawFunctionButton(GameCore.m_Functions.settings, 705, 525, 285, 85);
+            core.DrawFunctionButton(GameCore.m_Functions.settings, 705, 525, 330, 105);
         }
 
         public void StartGame()

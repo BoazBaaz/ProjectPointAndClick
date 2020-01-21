@@ -246,10 +246,10 @@ namespace GameEngine
                     GAME_ENGINE.DrawBitmap(m_StartButton, x, y);
                     break;
                 case m_Functions.exit:
-                    GAME_ENGINE.DrawBitmap(m_ExitButton, x, y);
+                    //GAME_ENGINE.DrawBitmap(m_ExitButton, x, y);
                     break;
                 case m_Functions.settings:
-                    GAME_ENGINE.DrawBitmap(m_SettingsButton, x, y);
+                    //GAME_ENGINE.DrawBitmap(m_SettingsButton, x, y);
                     break;
                 default:
                     break;
