@@ -17,31 +17,25 @@ namespace GameEngine
 
         public Bitmap[] puzzelBitmaps = new Bitmap[9];
 
-        private int[,] PuzzelMap = new int[,]
-        {
-            {1, 2, 3},
-            {2, 2, 3},
-            {3, 3, 3}
-        };
-
+        int l;
 
         public void Updater()
         {
             core.RoomButton(RoomManager.RoomStatus.Room2, 1220, 0, 60, 60);
             core.room1.PuzzelSolved = true;
-
-            for (int i = 0; i < 3; i++)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-
-                }
-            }
         }
 
         public void Painter()
         {
-            
+            //l++;
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    for (int u = 0; u < 3; u++)
+            //    {
+            //        GAME_ENGINE.DrawBitmap(puzzelBitmaps[l], 340 * u, 120 * i);
+            //    }
+            //}
         }
 
     }

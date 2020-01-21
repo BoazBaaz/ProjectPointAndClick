@@ -32,6 +32,13 @@ namespace GameEngine
         public Bitmap m_FireFrame2 = null;
         public Bitmap m_FireFrame3 = null;
         public Bitmap m_Gear = null;
+        public Bitmap m_ItemBread = null;
+        public Bitmap m_ItemCage = null;
+        public Bitmap m_ItemCandleLit = null;
+        public Bitmap m_ItemCandleNotlit = null;
+        public Bitmap m_ItemKnife = null;
+        public Bitmap m_ItemMatches = null;
+        public Bitmap m_ItemPuzzel = null;
         public Bitmap m_StartScreen = null;
         public Bitmap m_StartButton = null;
         public Bitmap m_ExitButton = null;
@@ -55,8 +62,6 @@ namespace GameEngine
         public Bitmap m_SettingsMenuVolumeMute = null;
         public Bitmap m_SettingsMenuVolumePin = null;
         public Bitmap m_SettingsButton = null;
-        public Bitmap m_TestBread = null;
-        public Bitmap m_TestMatches = null;
 
         //Items
         public Items m_Bread;
@@ -83,12 +88,23 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
+            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
+            m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
+            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
+            m_Room4Bitmap = new Bitmap("background_garden.png");
             m_CurserFree = new Bitmap("cursertest1.png");
             m_CurserClick = new Bitmap("cursertest2.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
             m_FireFrame3 = new Bitmap("fire_frame3.png");
             m_Gear = new Bitmap("gear.png");
+            m_ItemBread = new Bitmap("item_bread.png");
+            m_ItemCage = new Bitmap("item_cage.png");
+            m_ItemCandleLit = new Bitmap("item_candle_lit.png");
+            m_ItemCandleNotlit = new Bitmap("item_candle_notlit.png");
+            m_ItemKnife = new Bitmap("item_knife.png");
+            m_ItemMatches = new Bitmap("item_matches.png");
+            m_ItemPuzzel = new Bitmap("item_puzzel.png");
             m_StartButton = new Bitmap("mainscreen_play_button.png");
             m_SettingsButton = new Bitmap("mainscreen_options_button.png");
             m_ExitButton = new Bitmap("mainscreen_exit_button.png");
@@ -101,10 +117,6 @@ namespace GameEngine
             m_Puzzel7 = new Bitmap("puzzel7.png");
             m_Puzzel8 = new Bitmap("puzzel8.png");
             m_Puzzel9 = new Bitmap("puzzel9.png");
-            m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
-            m_Room4Bitmap = new Bitmap("background_garden.png");
-            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
-            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
             m_SettingsMenuInterface = new Bitmap("settings_menu_interface.png");
             m_SettingsMenuVolume1 = new Bitmap("settings_menu_volume_1.png");
             m_SettingsMenuVolume2 = new Bitmap("settings_menu_volume_2.png");
@@ -112,8 +124,6 @@ namespace GameEngine
             m_SettingsMenuVolumeMute = new Bitmap("settings_menu_volume_mute.png");
             m_SettingsMenuVolumePin = new Bitmap("settings_menu_volume_pin.png");
             m_StartScreen = new Bitmap("start_screen.png");
-            m_TestBread = new Bitmap("test_bread.png");
-            m_TestMatches = new Bitmap("test_matches.png");
 
             //FlameAnimation
             main.m_FlameAnimation[0] = m_FireFrame1;
@@ -121,23 +131,27 @@ namespace GameEngine
             main.m_FlameAnimation[2] = m_FireFrame3;
 
             //PuzzelBitmaps
-            puzzel.puzzelBitmaps[1] = m_Puzzel1;
-            puzzel.puzzelBitmaps[2] = m_Puzzel2;
-            puzzel.puzzelBitmaps[3] = m_Puzzel3;
-            puzzel.puzzelBitmaps[4] = m_Puzzel4;
-            puzzel.puzzelBitmaps[5] = m_Puzzel5;
-            puzzel.puzzelBitmaps[6] = m_Puzzel6;
-            puzzel.puzzelBitmaps[7] = m_Puzzel7;
-            puzzel.puzzelBitmaps[8] = m_Puzzel8;
-            puzzel.puzzelBitmaps[9] = m_Puzzel9;
+            puzzel.puzzelBitmaps[0] = m_Puzzel1;
+            puzzel.puzzelBitmaps[1] = m_Puzzel2;
+            puzzel.puzzelBitmaps[2] = m_Puzzel3;
+            puzzel.puzzelBitmaps[3] = m_Puzzel4;
+            puzzel.puzzelBitmaps[4] = m_Puzzel5;
+            puzzel.puzzelBitmaps[5] = m_Puzzel6;
+            puzzel.puzzelBitmaps[6] = m_Puzzel7;
+            puzzel.puzzelBitmaps[7] = m_Puzzel8;
+            puzzel.puzzelBitmaps[8] = m_Puzzel9;
 
             //Items
-            m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_TestBread);
-            m_Matches = new Items(Items.itemNames.Matches, Items.itemKinds.material, m_TestMatches);
+            m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_ItemBread);
+            m_Matches = new Items(Items.itemNames.Matches, Items.itemKinds.material, m_ItemMatches);
         }
 
         public override void GameEnd()
         {
+            m_Room1Bitmap.Dispose();
+            m_Room2Bitmap.Dispose();
+            m_Room3Bitmap.Dispose();
+            m_Room4Bitmap.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
             m_FireFrame1.Dispose();
@@ -156,10 +170,6 @@ namespace GameEngine
             m_Puzzel7.Dispose();
             m_Puzzel8.Dispose();
             m_Puzzel9.Dispose();
-            m_Room1Bitmap.Dispose();
-            m_Room2Bitmap.Dispose();
-            m_Room3Bitmap.Dispose();
-            m_Room4Bitmap.Dispose();
             m_SettingsMenuInterface.Dispose();
             m_SettingsMenuVolume1.Dispose();
             m_SettingsMenuVolume2.Dispose();
@@ -167,8 +177,13 @@ namespace GameEngine
             m_SettingsMenuVolumeMute.Dispose();
             m_SettingsMenuVolumePin.Dispose();
             m_StartScreen.Dispose();
-            m_TestBread.Dispose();
-            m_StartScreen.Dispose();
+            m_ItemBread.Dispose();
+            m_ItemCage.Dispose();
+            m_ItemCandleLit.Dispose();
+            m_ItemCandleNotlit.Dispose();
+            m_ItemKnife.Dispose();
+            m_ItemMatches.Dispose();
+            m_ItemPuzzel.Dispose();
         }
 
         public override void Update()
@@ -239,10 +254,10 @@ namespace GameEngine
                 switch (item.name)
                 {
                     case Items.itemNames.Bread:
-                        GAME_ENGINE.DrawBitmap(m_TestBread, x, y);
+                        GAME_ENGINE.DrawBitmap(m_ItemBread, x, y);
                         break;
                     case Items.itemNames.Matches:
-                        GAME_ENGINE.DrawBitmap(m_TestMatches, x, y);
+                        GAME_ENGINE.DrawBitmap(m_ItemMatches, x, y);
                         break;
                     case Items.itemNames.Candle:
                         break;
