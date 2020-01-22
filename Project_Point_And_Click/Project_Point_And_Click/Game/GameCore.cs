@@ -90,12 +90,12 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
-            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
+            m_Room1Bitmap = new Bitmap("background_mainroom.png");
             m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
-            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
+            m_Room3Bitmap = new Bitmap("background_summoningroom.png");
             m_Room4Bitmap = new Bitmap("background_garden.png");
-            m_CurserFree = new Bitmap("cursertest1.png");
-            m_CurserClick = new Bitmap("cursertest2.png");
+            m_CurserFree = new Bitmap("curser_1.png");
+            m_CurserClick = new Bitmap("curser_2.png");
             m_DeathScreen = new Bitmap("death_screen.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
@@ -242,42 +242,6 @@ namespace GameEngine
 
         public void DrawItemButton(Items item, int x, int y, int width, int height)
         {
-            if (!item.isClicked)
-            {
-                switch (item.name)
-                {
-                    case Items.itemNames.Bread:
-                        GAME_ENGINE.DrawBitmap(m_ItemBread, x, y);
-                        break;
-                    case Items.itemNames.Cage:
-                        GAME_ENGINE.DrawBitmap(m_ItemCage, x, y);
-                        break;
-                    case Items.itemNames.Candle:
-                        GAME_ENGINE.DrawBitmap(m_ItemCandleNotlit, x, y);
-                        break;
-                    case Items.itemNames.Candlelit:
-                        GAME_ENGINE.DrawBitmap(m_ItemCandleLit, x, y);
-                        break;
-                    case Items.itemNames.Knife:
-                        GAME_ENGINE.DrawBitmap(m_ItemKnife, x, y);
-                        break;
-                    case Items.itemNames.Puzzel:
-                        GAME_ENGINE.DrawBitmap(m_ItemPuzzel, x, y);
-                        break;
-                    case Items.itemNames.Matches:
-                        GAME_ENGINE.DrawBitmap(m_ItemMatches, x, y);
-                        break;
-                    case Items.itemNames.RabbitAlive:
-                        GAME_ENGINE.DrawBitmap(m_ItemRabbitAlive, x, y);
-                        break;
-                    case Items.itemNames.RabbitDead:
-                        GAME_ENGINE.DrawBitmap(m_ItemRabbitDead, x, y);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             GAME_ENGINE.SetColor(Color.Cyan);
             GAME_ENGINE.DrawRectangle(x, y, width, height, 2);
         }
