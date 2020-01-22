@@ -28,6 +28,7 @@ namespace GameEngine
         //Bitmap
         public Bitmap m_CurserFree = null;
         public Bitmap m_CurserClick = null;
+        public Bitmap m_DeathScreen = null;
         public Bitmap m_FireFrame1 = null;
         public Bitmap m_FireFrame2 = null;
         public Bitmap m_FireFrame3 = null;
@@ -59,7 +60,14 @@ namespace GameEngine
 
         //Items
         public Items m_Bread;
+        public Items m_Cage;
+        public Items m_CandleLit;
+        public Items m_CandleNotLit;
+        public Items m_Knife;
         public Items m_Matches;
+        public Items m_PuzzelPiece;
+        public Items m_RabbitAlive;
+        public Items m_RabbitDead;
 
         //Mouselocation
         public Vector2 m_MousePosition = new Vector2();
@@ -88,6 +96,7 @@ namespace GameEngine
             m_Room4Bitmap = new Bitmap("background_garden.png");
             m_CurserFree = new Bitmap("cursertest1.png");
             m_CurserClick = new Bitmap("cursertest2.png");
+            m_DeathScreen = new Bitmap("death_screen.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
             m_FireFrame3 = new Bitmap("fire_frame3.png");
@@ -120,7 +129,14 @@ namespace GameEngine
 
             //Items
             m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_ItemBread);
+            m_Cage = new Items(Items.itemNames.Cage, Items.itemKinds.material, m_ItemCage);
+            m_CandleLit = new Items(Items.itemNames.Candlelit, Items.itemKinds.questItem, m_ItemCandleLit);
+            m_CandleNotLit = new Items(Items.itemNames.Candle, Items.itemKinds.material, m_ItemCandleNotlit);
+            m_Knife = new Items(Items.itemNames.Knife, Items.itemKinds.material, m_ItemKnife);
             m_Matches = new Items(Items.itemNames.Matches, Items.itemKinds.material, m_ItemMatches);
+            m_PuzzelPiece = new Items(Items.itemNames.Puzzel, Items.itemKinds.questItem, m_ItemPuzzel);
+            m_RabbitAlive = new Items(Items.itemNames.RabbitAlive, Items.itemKinds.material, m_ItemRabbitAlive);
+            m_RabbitDead = new Items(Items.itemNames.RabbitDead, Items.itemKinds.questItem, m_ItemRabbitDead);
         }
 
         public override void GameEnd()
@@ -131,6 +147,7 @@ namespace GameEngine
             m_Room4Bitmap.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
+            m_DeathScreen.Dispose();
             m_FireFrame1.Dispose();
             m_FireFrame2.Dispose();
             m_FireFrame3.Dispose();
@@ -227,16 +244,29 @@ namespace GameEngine
                     case Items.itemNames.Bread:
                         GAME_ENGINE.DrawBitmap(m_ItemBread, x, y);
                         break;
+                    case Items.itemNames.Cage:
+                        GAME_ENGINE.DrawBitmap(m_ItemCage, x, y);
+                        break;
+                    case Items.itemNames.Candle:
+                        GAME_ENGINE.DrawBitmap(m_ItemCandleNotlit, x, y);
+                        break;
+                    case Items.itemNames.Candlelit:
+                        GAME_ENGINE.DrawBitmap(m_ItemCandleLit, x, y);
+                        break;
+                    case Items.itemNames.Knife:
+                        GAME_ENGINE.DrawBitmap(m_ItemKnife, x, y);
+                        break;
+                    case Items.itemNames.Puzzel:
+                        GAME_ENGINE.DrawBitmap(m_ItemPuzzel, x, y);
+                        break;
                     case Items.itemNames.Matches:
                         GAME_ENGINE.DrawBitmap(m_ItemMatches, x, y);
                         break;
-                    case Items.itemNames.Candle:
+                    case Items.itemNames.RabbitAlive:
+                        GAME_ENGINE.DrawBitmap(m_ItemRabbitAlive, x, y);
                         break;
-                    case Items.itemNames.Puzzel:
-                        break;
-                    case Items.itemNames.Rabbit:
-                        break;
-                    case Items.itemNames.Cage:
+                    case Items.itemNames.RabbitDead:
+                        GAME_ENGINE.DrawBitmap(m_ItemRabbitDead, x, y);
                         break;
                     default:
                         break;

@@ -23,15 +23,17 @@ namespace GameEngine
 
         public void Painter()
         {
-            //l++;
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 360, 70, 0, 0, 200, 200); //1
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 560, 70, 200, 0, 200, 200); //2
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 760, 70, 400, 0, 200, 200); //3
 
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    for (int u = 0; u < 3; u++)
-            //    {
-            //        GAME_ENGINE.DrawBitmap(puzzelBitmaps[l], 340 * u, 120 * i);
-            //    }
-            //}
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 360, 270, 0, 200, 200, 200); //4
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 560, 270, 200, 200, 200, 200); //5
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 760, 270, 400, 200, 200, 200); //6
+
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 360, 470, 0, 400, 200, 200); //7
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 560, 470, 200, 400, 200, 200); //8
+            GAME_ENGINE.DrawBitmap(core.m_PuzzelGoat, 760, 470, 400, 400, 200, 200); //9
         }
 
     }

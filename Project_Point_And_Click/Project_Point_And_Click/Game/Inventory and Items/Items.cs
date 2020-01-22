@@ -11,11 +11,14 @@ namespace GameEngine
         public enum itemNames : int
         {
             Bread = 0,
-            Matches,
+            Cage,
             Candle,
+            Candlelit,
+            Knife,
+            Matches,
             Puzzel,
-            Rabbit,
-            Cage
+            RabbitAlive,
+            RabbitDead
         }
         public enum itemKinds : int
         {

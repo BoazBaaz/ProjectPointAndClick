@@ -19,7 +19,7 @@ namespace GameEngine
 
         public void Updater()
         {
-            ClickItem();
+            //ClickItem();
         }
 
         public void Painter()
@@ -56,21 +56,21 @@ namespace GameEngine
             return (100 * m_InventoryList.Count);
         }
 
-        private void ClickItem()
-        {
-            foreach (Inventory item in m_InventoryList)
-            {
-                if (core.m_MousePosition.X > item.position.X - 50 && core.m_MousePosition.X < item.position.X + 50)
-                {
-                    if (core.m_MousePosition.Y > item.position.Y && core.m_MousePosition.Y < item.position.Y + 100)
-                    {
-                        if (GAME_ENGINE.GetMouseButtonDown(0))
-                        {
-                            Console.WriteLine("it's a " + item.items.name.ToString());
-                        }
-                    }
-                }
-            }
-        }
+        //private void ClickItem()
+        //{
+        //    foreach (Inventory item in m_InventoryList)
+        //    {
+        //        if (core.m_MousePosition.X > item.position.X && core.m_MousePosition.X < item.position.X + 100)
+        //        {
+        //            if (core.m_MousePosition.Y > item.position.Y && core.m_MousePosition.Y < item.position.Y)
+        //            {
+        //                if (GAME_ENGINE.GetMouseButtonDown(0))
+        //                {
+        //                    Console.WriteLine("it's a " + item.items.name.ToString());
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

@@ -35,21 +35,25 @@
                     core.room1.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
+                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room2:
                     core.room2.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
+                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room3:
                     core.room3.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
+                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room4:
                     core.room4.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
+                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Dialog:
                     core.dialog.Updater();
@@ -134,7 +138,7 @@
 
                     break;
                 case RoomStatus.Endscreen:
-
+                    GAME_ENGINE.DrawBitmap(core.m_DeathScreen, 0, 0);
                     break;
                 case RoomStatus.Settings:
                     GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
