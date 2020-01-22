@@ -197,6 +197,11 @@ namespace GameEngine
         #region RoomButton
         public void RoomButton(RoomManager.RoomStatus roomInput, int x, int y, int width, int height)
         {
+            if (roomInput == RoomManager.RoomStatus.MainMenu)
+            {
+                invmenager.ClearInventory();
+            }
+
             if (m_MousePosition.X > x && m_MousePosition.X < x + width)
             {
                 if (m_MousePosition.Y > y && m_MousePosition.Y < y + height)
@@ -342,5 +347,6 @@ namespace GameEngine
         }
 
         #endregion
+
     }
 }
