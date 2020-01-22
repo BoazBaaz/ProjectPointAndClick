@@ -26,6 +26,11 @@ namespace GameEngine
         public SettingsMenu settings;
 
         //Bitmap
+        public Bitmap m_Room1Bitmap = null;
+        public Bitmap m_Room2Bitmap = null;
+        public Bitmap m_Room3Bitmap = null;
+        public Bitmap m_Room4Bitmap = null;
+        public Bitmap m_BlackScreen = null;
         public Bitmap m_CurserFree = null;
         public Bitmap m_CurserClick = null;
         public Bitmap m_DeathScreen = null;
@@ -46,10 +51,6 @@ namespace GameEngine
         public Bitmap m_StartButton = null;
         public Bitmap m_ExitButton = null;
         public Bitmap m_PuzzelGoat = null;
-        public Bitmap m_Room1Bitmap = null;
-        public Bitmap m_Room2Bitmap = null;
-        public Bitmap m_Room3Bitmap = null;
-        public Bitmap m_Room4Bitmap = null;
         public Bitmap m_SettingsMenuInterface = null;
         public Bitmap m_SettingsMenuVolume1 = null;
         public Bitmap m_SettingsMenuVolume2 = null;
@@ -94,6 +95,7 @@ namespace GameEngine
             m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
             m_Room3Bitmap = new Bitmap("background_summoningroom.png");
             m_Room4Bitmap = new Bitmap("background_garden.png");
+            m_BlackScreen = new Bitmap("blackscreen.png");
             m_CurserFree = new Bitmap("curser_1.png");
             m_CurserClick = new Bitmap("curser_2.png");
             m_DeathScreen = new Bitmap("death_screen.png");
@@ -145,6 +147,7 @@ namespace GameEngine
             m_Room2Bitmap.Dispose();
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
+            m_BlackScreen.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
             m_DeathScreen.Dispose();

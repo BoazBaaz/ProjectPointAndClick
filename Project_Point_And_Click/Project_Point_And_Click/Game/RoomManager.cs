@@ -135,7 +135,7 @@
                     GAME_ENGINE.DrawBitmap(core.m_Room4Bitmap, 0, 0);
                     break;
                 case RoomStatus.Dialog:
-
+                    GAME_ENGINE.DrawBitmap(core.m_BlackScreen, 0, 0);
                     break;
                 case RoomStatus.Endscreen:
                     GAME_ENGINE.DrawBitmap(core.m_DeathScreen, 0, 0);
@@ -144,7 +144,7 @@
                     GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
                     break;
                 case RoomStatus.Puzzel:
-
+                    GAME_ENGINE.DrawBitmap(core.m_BlackScreen, 0, 0);
                     break;
                 default:
                     break;
