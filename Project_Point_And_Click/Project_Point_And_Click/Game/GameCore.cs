@@ -26,8 +26,15 @@ namespace GameEngine
         public SettingsMenu settings;
 
         //Bitmap
+        public Bitmap m_Room1Bitmap = null;
+        public Bitmap m_Room2Bitmap = null;
+        public Bitmap m_Room2Bitmap2 = null;
+        public Bitmap m_Room3Bitmap = null;
+        public Bitmap m_Room4Bitmap = null;
+        public Bitmap m_BlackScreen = null;
         public Bitmap m_CurserFree = null;
         public Bitmap m_CurserClick = null;
+        public Bitmap m_DeathScreen = null;
         public Bitmap m_FireFrame1 = null;
         public Bitmap m_FireFrame2 = null;
         public Bitmap m_FireFrame3 = null;
@@ -45,10 +52,6 @@ namespace GameEngine
         public Bitmap m_StartButton = null;
         public Bitmap m_ExitButton = null;
         public Bitmap m_PuzzelGoat = null;
-        public Bitmap m_Room1Bitmap = null;
-        public Bitmap m_Room2Bitmap = null;
-        public Bitmap m_Room3Bitmap = null;
-        public Bitmap m_Room4Bitmap = null;
         public Bitmap m_SettingsMenuInterface = null;
         public Bitmap m_SettingsMenuVolume1 = null;
         public Bitmap m_SettingsMenuVolume2 = null;
@@ -59,10 +62,19 @@ namespace GameEngine
 
         //Items
         public Items m_Bread;
+        public Items m_Cage;
+        public Items m_CandleLit;
+        public Items m_CandleNotLit;
+        public Items m_Knife;
         public Items m_Matches;
+        public Items m_PuzzelPiece;
+        public Items m_RabbitAlive;
+        public Items m_RabbitDead;
 
         //Mouselocation
         public Vector2 m_MousePosition = new Vector2();
+
+        public bool m_AmuletActive = false;
 
         public override void GameStart()
         {
@@ -82,12 +94,15 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
-            m_Room1Bitmap = new Bitmap("rough_sketch_mainroom.png");
-            m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
-            m_Room3Bitmap = new Bitmap("rough_sketch_summoning_room.png");
+            m_Room1Bitmap = new Bitmap("background_mainroom.png");
+            m_Room2Bitmap = new Bitmap("background_basement_dark.png");
+            m_Room2Bitmap2 = new Bitmap("backround_basement_clear.png");
+            m_Room3Bitmap = new Bitmap("background_summoningroom.png");
             m_Room4Bitmap = new Bitmap("background_garden.png");
-            m_CurserFree = new Bitmap("cursertest1.png");
-            m_CurserClick = new Bitmap("cursertest2.png");
+            m_BlackScreen = new Bitmap("blackscreen.png");
+            m_CurserFree = new Bitmap("curser_1.png");
+            m_CurserClick = new Bitmap("curser_2.png");
+            m_DeathScreen = new Bitmap("death_screen.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
             m_FireFrame3 = new Bitmap("fire_frame3.png");
@@ -120,17 +135,27 @@ namespace GameEngine
 
             //Items
             m_Bread = new Items(Items.itemNames.Bread, Items.itemKinds.material, m_ItemBread);
+            m_Cage = new Items(Items.itemNames.Cage, Items.itemKinds.material, m_ItemCage);
+            m_CandleLit = new Items(Items.itemNames.Candlelit, Items.itemKinds.questItem, m_ItemCandleLit);
+            m_CandleNotLit = new Items(Items.itemNames.Candle, Items.itemKinds.material, m_ItemCandleNotlit);
+            m_Knife = new Items(Items.itemNames.Knife, Items.itemKinds.material, m_ItemKnife);
             m_Matches = new Items(Items.itemNames.Matches, Items.itemKinds.material, m_ItemMatches);
+            m_PuzzelPiece = new Items(Items.itemNames.Puzzel, Items.itemKinds.questItem, m_ItemPuzzel);
+            m_RabbitAlive = new Items(Items.itemNames.RabbitAlive, Items.itemKinds.material, m_ItemRabbitAlive);
+            m_RabbitDead = new Items(Items.itemNames.RabbitDead, Items.itemKinds.questItem, m_ItemRabbitDead);
         }
 
         public override void GameEnd()
         {
             m_Room1Bitmap.Dispose();
             m_Room2Bitmap.Dispose();
+            m_Room2Bitmap2.Dispose();
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
+            m_BlackScreen.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
+            m_DeathScreen.Dispose();
             m_FireFrame1.Dispose();
             m_FireFrame2.Dispose();
             m_FireFrame3.Dispose();
@@ -161,6 +186,18 @@ namespace GameEngine
         {
             m_MousePosition = GAME_ENGINE.GetMousePosition();
 
+            if (GAME_ENGINE.GetKeyDown(Key.E))
+            {
+                if (!m_AmuletActive)
+                {
+                    m_AmuletActive = true;
+                }
+                else
+                {
+                    m_AmuletActive = false;
+                }
+            }
+
             curser.CurserSwitchState();
             manager.MainUpdater();
         }
@@ -180,6 +217,11 @@ namespace GameEngine
         #region RoomButton
         public void RoomButton(RoomManager.RoomStatus roomInput, int x, int y, int width, int height)
         {
+            if (roomInput == RoomManager.RoomStatus.MainMenu)
+            {
+                invmenager.ClearInventory();
+            }
+
             if (m_MousePosition.X > x && m_MousePosition.X < x + width)
             {
                 if (m_MousePosition.Y > y && m_MousePosition.Y < y + height)
@@ -220,29 +262,6 @@ namespace GameEngine
 
         public void DrawItemButton(Items item, int x, int y, int width, int height)
         {
-            if (!item.isClicked)
-            {
-                switch (item.name)
-                {
-                    case Items.itemNames.Bread:
-                        GAME_ENGINE.DrawBitmap(m_ItemBread, x, y);
-                        break;
-                    case Items.itemNames.Matches:
-                        GAME_ENGINE.DrawBitmap(m_ItemMatches, x, y);
-                        break;
-                    case Items.itemNames.Candle:
-                        break;
-                    case Items.itemNames.Puzzel:
-                        break;
-                    case Items.itemNames.Rabbit:
-                        break;
-                    case Items.itemNames.Cage:
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             GAME_ENGINE.SetColor(Color.Cyan);
             GAME_ENGINE.DrawRectangle(x, y, width, height, 2);
         }
@@ -312,5 +331,6 @@ namespace GameEngine
         }
 
         #endregion
+
     }
 }

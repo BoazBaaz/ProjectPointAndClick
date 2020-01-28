@@ -17,7 +17,8 @@ namespace GameEngine
 
         public void Updater()
         {
-            
+            core.RoomButton(RoomManager.RoomStatus.MainMenu, 217, 462, 401, 167);
+            core.FunctionButton(GameCore.m_Functions.exit, 732, 462, 400, 167);
         }
 
         public void Painter()

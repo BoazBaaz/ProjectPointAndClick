@@ -25,7 +25,8 @@ namespace GameEngine
                 core.RoomButton(RoomManager.RoomStatus.Room2, 680, 470, 130, 75);
             core.RoomButton(RoomManager.RoomStatus.Room3, 280, 105, 80, 360);
             core.RoomButton(RoomManager.RoomStatus.Room4, 1080, 20, 180, 380);
-            core.ItemButton(core.m_Bread ,410, 290, 70, 40);
+            core.ItemButton(core.m_Bread, 410, 290, 70, 40);
+            core.ItemButton(core.m_CandleNotLit, 640, 290, 70, 80);
             core.ItemButton(core.m_Matches, 230, 380, 50, 50);
         }
 
@@ -38,7 +39,10 @@ namespace GameEngine
             core.DrawRoomButton(1080, 20, 180, 380);
             //Items
             core.DrawItemButton(core.m_Bread, 410, 290, 70, 40);
+            core.DrawItemButton(core.m_CandleNotLit, 640, 290, 70, 80);
             core.DrawItemButton(core.m_Matches, 230, 380, 50, 50);
+            //Amulet
+            //GAME_ENGINE.DrawBitmap(core.m_AmuletActive)
             #endregion 
         }
 
