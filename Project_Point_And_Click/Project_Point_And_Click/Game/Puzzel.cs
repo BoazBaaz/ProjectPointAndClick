@@ -16,6 +16,7 @@ namespace GameEngine
         }
 
         string puzzelTip = " ";
+        int numberOfClicks;
 
         public void Updater()
         {
@@ -52,7 +53,8 @@ namespace GameEngine
                         {
                             if (GAME_ENGINE.GetMouseButtonDown(0))
                             {
-                                puzzelTip = "Click rechts boven in je scherm!";
+                                puzzelTip = "Click rechts boven in je scherm! (" + numberOfClicks + " clicks)";
+                                numberOfClicks++;
                             }
                         }
                     }

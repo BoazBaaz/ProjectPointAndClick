@@ -35,25 +35,21 @@
                     core.room1.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
-                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room2:
                     core.room2.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
-                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room3:
                     core.room3.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
-                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Room4:
                     core.room4.Updater();
                     core.invmenager.Updater();
                     core.FunctionButton(GameCore.m_Functions.settings, 10, 10, 60, 60);
-                    core.RoomButton(RoomStatus.Endscreen, 1220, 0, 60, 60);
                     break;
                 case RoomStatus.Dialog:
                     core.dialog.Updater();
@@ -126,7 +122,14 @@
                     GAME_ENGINE.DrawBitmap(core.m_Room1Bitmap, 0, 0);
                     break;
                 case RoomStatus.Room2:
-                    GAME_ENGINE.DrawBitmap(core.m_Room2Bitmap, 0, 0);
+                    if (core.m_AmuletActive)
+                    {
+                        GAME_ENGINE.DrawBitmap(core.m_Room2Bitmap2, 0, 0);
+                    }
+                    else
+                    {
+                        GAME_ENGINE.DrawBitmap(core.m_Room2Bitmap, 0, 0);
+                    }
                     break;
                 case RoomStatus.Room3:
                     GAME_ENGINE.DrawBitmap(core.m_Room3Bitmap, 0, 0);
@@ -135,7 +138,6 @@
                     GAME_ENGINE.DrawBitmap(core.m_Room4Bitmap, 0, 0);
                     break;
                 case RoomStatus.Dialog:
-
                     break;
                 case RoomStatus.Endscreen:
                     GAME_ENGINE.DrawBitmap(core.m_DeathScreen, 0, 0);
@@ -144,7 +146,6 @@
                     GAME_ENGINE.DrawBitmap(core.m_SettingsMenuInterface, 0, 0);
                     break;
                 case RoomStatus.Puzzel:
-
                     break;
                 default:
                     break;
