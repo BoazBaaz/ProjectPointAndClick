@@ -17,6 +17,17 @@ namespace GameEngine
 
         public void Updater()
         {
+            if (core.m_Bread.isClicked == true)
+            {
+                if (core.m_CandleNotLit.isClicked == true)
+                {
+                    if (core.m_Matches.isClicked == true)
+                    {
+                        core.manager.SetRoom(RoomManager.RoomStatus.Endscreen);
+                    }
+                }
+            }
+
             core.RoomButton(RoomManager.RoomStatus.Room1, 1055, 25, 225, 625);
         }
 

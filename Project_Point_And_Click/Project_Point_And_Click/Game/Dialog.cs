@@ -15,20 +15,46 @@ namespace GameEngine
             core = c;
         }
 
+        private float m_FPS = 1f;
+        private float m_ControlTimer = 0f;
+
+        private int totalSeconds = 0;
+
         public void Updater()
         {
-            #region CanDeleteSoon
-            core.RoomButton(RoomManager.RoomStatus.Room1, 1220, 00, 50, 50);
-            #endregion
+            m_ControlTimer += GAME_ENGINE.GetDeltaTime();
+
+            if (m_ControlTimer > (1f / m_FPS))
+            {
+
+                totalSeconds++;
+
+                m_ControlTimer = 0;
+            }
         }
 
         public void Painter()
         {
-            #region CanDeleteSoon
-            GAME_ENGINE.SetColor(Color.Black);
-            GAME_ENGINE.DrawString("Skip", 1230, 10, 50, 50);
-            core.DrawRoomButton(1220, 00, 50, 50);
-            #endregion
+            if (totalSeconds < 2)
+            {
+                GAME_ENGINE.DrawBitmap(core.m_Cutscene1, 0, 0);
+            }
+            else if (totalSeconds < 4)
+            {
+                GAME_ENGINE.DrawBitmap(core.m_Cutscene2, 0, 0);
+            }
+            else if (totalSeconds < 5)
+            {
+                GAME_ENGINE.DrawBitmap(core.m_Cutscene3, 0, 0);
+            }
+            else if (totalSeconds < 7)
+            {
+                GAME_ENGINE.DrawBitmap(core.m_Cutscene4, 0, 0);
+            }
+            else
+            {
+                core.manager.SetRoom(RoomManager.RoomStatus.Room1);
+            }
         }
     }
 }

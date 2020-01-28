@@ -35,6 +35,10 @@ namespace GameEngine
         public Bitmap m_BlackScreen = null;
         public Bitmap m_CurserFree = null;
         public Bitmap m_CurserClick = null;
+        public Bitmap m_Cutscene1 = null;
+        public Bitmap m_Cutscene2 = null;
+        public Bitmap m_Cutscene3 = null;
+        public Bitmap m_Cutscene4 = null;
         public Bitmap m_DeathScreen = null;
         public Bitmap m_FireFrame1 = null;
         public Bitmap m_FireFrame2 = null;
@@ -103,6 +107,10 @@ namespace GameEngine
             m_Room4Bitmap = new Bitmap("background_garden.png");
             m_CurserFree = new Bitmap("curser_1.png");
             m_CurserClick = new Bitmap("curser_2.png");
+            m_Cutscene1 = new Bitmap("cutscene1.png");
+            m_Cutscene2 = new Bitmap("cutscene2.png");
+            m_Cutscene3 = new Bitmap("cutscene3.png");
+            m_Cutscene4 = new Bitmap("cutscene4.png");
             m_DeathScreen = new Bitmap("death_screen.png");
             m_FireFrame1 = new Bitmap("fire_frame1.png");
             m_FireFrame2 = new Bitmap("fire_frame2.png");
@@ -156,6 +164,10 @@ namespace GameEngine
             m_Room4Bitmap.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
+            m_Cutscene1.Dispose();
+            m_Cutscene2.Dispose();
+            m_Cutscene3.Dispose();
+            m_Cutscene4.Dispose();
             m_DeathScreen.Dispose();
             m_FireFrame1.Dispose();
             m_FireFrame2.Dispose();
