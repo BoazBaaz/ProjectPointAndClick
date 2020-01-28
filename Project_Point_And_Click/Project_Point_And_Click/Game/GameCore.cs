@@ -28,6 +28,7 @@ namespace GameEngine
         //Bitmap
         public Bitmap m_Room1Bitmap = null;
         public Bitmap m_Room2Bitmap = null;
+        public Bitmap m_Room2Bitmap2 = null;
         public Bitmap m_Room3Bitmap = null;
         public Bitmap m_Room4Bitmap = null;
         public Bitmap m_BlackScreen = null;
@@ -73,6 +74,8 @@ namespace GameEngine
         //Mouselocation
         public Vector2 m_MousePosition = new Vector2();
 
+        public bool m_AmuletActive = false;
+
         public override void GameStart()
         {
             //Classes
@@ -92,7 +95,8 @@ namespace GameEngine
 
             //Bitmaps
             m_Room1Bitmap = new Bitmap("background_mainroom.png");
-            m_Room2Bitmap = new Bitmap("rough_sketch_basement.png");
+            m_Room2Bitmap = new Bitmap("background_basement_dark.png");
+            m_Room2Bitmap2 = new Bitmap("backround_basement_clear.png");
             m_Room3Bitmap = new Bitmap("background_summoningroom.png");
             m_Room4Bitmap = new Bitmap("background_garden.png");
             m_BlackScreen = new Bitmap("blackscreen.png");
@@ -145,6 +149,7 @@ namespace GameEngine
         {
             m_Room1Bitmap.Dispose();
             m_Room2Bitmap.Dispose();
+            m_Room2Bitmap2.Dispose();
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
             m_BlackScreen.Dispose();
@@ -180,6 +185,18 @@ namespace GameEngine
         public override void Update()
         {
             m_MousePosition = GAME_ENGINE.GetMousePosition();
+
+            if (GAME_ENGINE.GetKeyDown(Key.E))
+            {
+                if (!m_AmuletActive)
+                {
+                    m_AmuletActive = true;
+                }
+                else
+                {
+                    m_AmuletActive = false;
+                }
+            }
 
             curser.CurserSwitchState();
             manager.MainUpdater();

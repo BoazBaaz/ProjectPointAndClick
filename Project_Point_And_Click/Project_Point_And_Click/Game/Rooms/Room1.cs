@@ -41,6 +41,8 @@ namespace GameEngine
             core.DrawItemButton(core.m_Bread, 410, 290, 70, 40);
             core.DrawItemButton(core.m_CandleNotLit, 640, 290, 70, 80);
             core.DrawItemButton(core.m_Matches, 230, 380, 50, 50);
+            //Amulet
+            //GAME_ENGINE.DrawBitmap(core.m_AmuletActive)
             #endregion 
         }
 

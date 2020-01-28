@@ -22,6 +22,10 @@ namespace GameEngine
         public void Updater()
         {
             ClickItem();
+            //if (m_InventoryList.Contains(Inventory(new Vector2(10, 10), core.m_Bread)))
+            //{
+
+            //}
         }
 
         public void Painter()
