@@ -18,7 +18,7 @@ namespace GameEngine
             // Set the optional values
             GAME_ENGINE.SetScreenWidth(1280);
             GAME_ENGINE.SetScreenHeight(720);
-            GAME_ENGINE.SetBackgroundColor(Color.White);
+            GAME_ENGINE.SetBackgroundColor(Color.Black);
             //GAME_ENGINE.SetBackgroundColor(49, 77, 121); //The Unity background color
         }
     }

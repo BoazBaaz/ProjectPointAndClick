@@ -99,7 +99,6 @@ namespace GameEngine
             m_Room2Bitmap2 = new Bitmap("backround_basement_clear.png");
             m_Room3Bitmap = new Bitmap("background_summoningroom.png");
             m_Room4Bitmap = new Bitmap("background_garden.png");
-            m_BlackScreen = new Bitmap("blackscreen.png");
             m_CurserFree = new Bitmap("curser_1.png");
             m_CurserClick = new Bitmap("curser_2.png");
             m_DeathScreen = new Bitmap("death_screen.png");
@@ -152,7 +151,6 @@ namespace GameEngine
             m_Room2Bitmap2.Dispose();
             m_Room3Bitmap.Dispose();
             m_Room4Bitmap.Dispose();
-            m_BlackScreen.Dispose();
             m_CurserFree.Dispose();
             m_CurserClick.Dispose();
             m_DeathScreen.Dispose();
