@@ -26,6 +26,7 @@ namespace GameEngine
         public SettingsMenu settings;
 
         //Bitmap
+        public Bitmap m_Amulet = null;
         public Bitmap m_Room1Bitmap = null;
         public Bitmap m_Room2Bitmap = null;
         public Bitmap m_Room2Bitmap2 = null;
@@ -94,6 +95,7 @@ namespace GameEngine
             settings = new SettingsMenu(this);
 
             //Bitmaps
+            m_Amulet = new Bitmap("amulet.png");
             m_Room1Bitmap = new Bitmap("background_mainroom.png");
             m_Room2Bitmap = new Bitmap("background_basement_dark.png");
             m_Room2Bitmap2 = new Bitmap("backround_basement_clear.png");
@@ -146,6 +148,7 @@ namespace GameEngine
 
         public override void GameEnd()
         {
+            m_Amulet.Dispose();
             m_Room1Bitmap.Dispose();
             m_Room2Bitmap.Dispose();
             m_Room2Bitmap2.Dispose();
@@ -187,13 +190,9 @@ namespace GameEngine
             if (GAME_ENGINE.GetKeyDown(Key.E))
             {
                 if (!m_AmuletActive)
-                {
                     m_AmuletActive = true;
-                }
                 else
-                {
                     m_AmuletActive = false;
-                }
             }
 
             curser.CurserSwitchState();
