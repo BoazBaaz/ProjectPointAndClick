@@ -78,22 +78,26 @@
                     core.room1.Painter();
                     core.invmenager.Painter();
                     core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
+                    DrawAmulet();
                     break;
                 case RoomStatus.Room2:
                     DrawBackground();
                     core.room2.Painter();
                     core.invmenager.Painter();
                     core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
+                    DrawAmulet();
                     break;
                 case RoomStatus.Room3:
                     core.room3.Painter();
                     core.invmenager.Painter();
                     core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
+                    DrawAmulet();
                     break;
                 case RoomStatus.Room4:
                     core.room4.Painter();
                     core.invmenager.Painter();
                     core.DrawFunctionButton(GameCore.m_Functions.gear, 10, 10, 60, 60);
+                    DrawAmulet();
                     break;
                 case RoomStatus.Endscreen:
                     core.end.Painter();
@@ -183,6 +187,17 @@
         public void SetRoom(RoomStatus roomInput)
         {
             ActiveScene = (RoomStatus)roomInput;
+        }
+
+        Font amulet = new Font("", 20);
+
+        private void DrawAmulet()
+        {
+            GAME_ENGINE.SetColor(Color.Gray);
+            GAME_ENGINE.FillRoundedRectangle(20, 550, 150, 150, 10, 10);
+            GAME_ENGINE.DrawBitmap(core.m_Amulet, 20, 550);
+            GAME_ENGINE.SetColor(Color.White);
+            GAME_ENGINE.DrawString(amulet, "E", 140, 670, 50, 50);
         }
     }
 }
